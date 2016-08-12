@@ -24,5 +24,7 @@ Twilio API to send SMS text reminders and add to-do list items to your scheduler
 WunderList - Schedulers and reminders.
 ##Task Breakdown
 Front end - Ryan Talbot
+
 API Integration and Documentation - George Witt
+
 Backend/Data Structure - Ronny Tomasetti & Brent Bentley
