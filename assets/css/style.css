@@ -12,21 +12,21 @@ nav {
     margin: 10px;
 }
 
-#allButton {
-    background-color: #2db34a;
-}
+/*#allButton {*/
+    /*background-color: #2db34a;*/
+/*}*/
 
-#occupiedButton {
-    background-color: #00B7FF;
-}
+/*#occupiedButton {*/
+    /*background-color: #00B7FF;*/
+/*}*/
 
-#unoccupiedButton {
-    background-color: #c9302c;
-}
+/*#unoccupiedButton {*/
+    /*background-color: #c9302c;*/
+/*}*/
 
-#archivedButton {
-    background-color: #8c8c8c;
-}
+/*#archivedButton {*/
+    /*background-color: #8c8c8c;*/
+/*}*/
 
 .panel-heading {
     background-color: #2db34a;
