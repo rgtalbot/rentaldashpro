@@ -27,3 +27,12 @@ nav {
 #archivedButton {
     background-color: #8c8c8c;
 }
+
+.panel-heading {
+    background-color: #2db34a;
+    color: white;
+}
+
+.panel {
+    border: 1px solid #2db34a;
+}
