@@ -18,9 +18,13 @@ property owner to keep track of property details such as financial reports, lega
 maintenance details/issues tracking.
 ##List of APIs
 Trulia API to pull in available property data.
+
 Google Maps used for geocoding and location based services.
+
 Nice to have,
+
 Twilio API to send SMS text reminders and add to-do list items to your scheduler via SMS.
+
 WunderList - Schedulers and reminders.
 ##Task Breakdown
 Front end - Ryan Talbot
