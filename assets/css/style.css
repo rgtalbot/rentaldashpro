@@ -1,0 +1,29 @@
+.nav-wrapper, .container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #2db34a;
+}
+
+.row {
+    padding 10px;
+    margin: 10px;
+}
+
+#allButton {
+    background-color: #2db34a;
+}
+
+#occupiedButton {
+    background-color: #00B7FF;
+}
+
+#unoccupiedButton {
+    background-color: #c9302c;
+}
+
+#archivedButton {
+    background-color: #8c8c8c;
+}
