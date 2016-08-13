@@ -41,17 +41,19 @@
         <div class="col s12 m6">
             <div class="card">
                 <div class="card-content row">
+                    <div id="rent">
                     <div class="card-title col s9">Rent</div><div class="col s3">
-                        <input class="right-align" type="text" id="rent-input" value="$1,500.00">
+                        <input disabled class="right-align test" type="text" id="rent-input" value="$1,500.00">
                     </div>
+                        </div>
                     <div class="card-title col s9">Mortgage</div><div class="col s3">
-                        <input class="right-align" type="text" id="rent-input" value="$1,500.00">
+                        <input disabled class="right-align test" type="text" id="mort-input" value="$1,500.00">
                     </div>
                     <div class="card-title col s9">HOA Fees</div><div class="col s3">
-                        <input class="right-align" type="text" id="rent-input" value="$1,500.00">
+                        <input disabled class="right-align test" type="text" id="hoa-input" value="$1,500.00">
                     </div>
                     <div class="card-title col s9">Maintenence Expenses</div><div class="col s3">
-                        <input class="right-align" type="text" id="rent-input" value="$1,500.00">
+                        <input disabled class="right-align test" type="text" id="maint-input" value="$1,500.00">
                     </div>
                 </div>
                 <div class="progress">
@@ -59,11 +61,73 @@
                         <span class="sr-only">40% Complete (success)</span>
                     </div>
                 </div>
+                <div id="saveEditButton">
+                    <a class="waves-effect waves-light btn" id="editSaveBtn">Edit</a>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="assets/javascript/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+<script>
+    $(document).ready(function() {
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE",
+            authDomain: "rental-dash-pro.firebaseapp.com",
+            databaseURL: "https://rental-dash-pro.firebaseio.com",
+            storageBucket: "rental-dash-pro.appspot.com",
+        };
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+
+
+
+
+        $("#editSaveBtn").on('click', function () {
+            if ($('#editSaveBtn').text() == "Save") {
+                $('#editSaveBtn').text('Edit');
+                $('.test').attr('disabled', true);
+                $('#rent-input').attr('value', $('#rent-input').val());
+                $('#mort-input').attr('value', $('#mort-input').val());
+                $('#hoa-input').attr('value', $('#hoa-input').val());
+                $('#maint-input').attr('value', $('#maint-input').val());
+
+                var rent = $('#rent-input').val().trim();
+                var mortgage = $('#mort-input').val().trim();
+                var hoa = $('#hoa-input').val().trim();
+                var maint = $('#maint-input').val().trim();
+
+                database.ref().set({
+                    rent: rent,
+                    mortgage: mortgage,
+                    hoa: hoa,
+                    maint: maint,
+                });
+
+            } else if ($('#editSaveBtn').text() == "Edit") {
+                $('#editSaveBtn').text('Save');
+                $('.test').removeAttr('disabled');
+            }
+
+        });
+
+        database.ref().on("value", function(snapshot, value) {
+            var rent = snapshot.val().rent;
+            var mortgage = snapshot.val().mortgage;
+            var hoa = snapshot.val().hoa;
+            var maint = snapshot.val().maint;
+
+            $('#rent-input').attr('value', rent);
+            $('#mort-input').attr('value', mortgage);
+            $('#hoa-input').attr('value', hoa);
+            $('#maint-input').attr('value', maint);
+        });
+    });
+</script>
 </body>
 </html>
 
