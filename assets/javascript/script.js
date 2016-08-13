@@ -1,3 +1,7 @@
 $(document).ready(function() {
-   $('.carousel').carousel();
+
+
+
+   // make the modal open for adding a new property
+   $('.modal-trigger').leanModal();
 });

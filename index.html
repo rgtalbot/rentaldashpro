@@ -5,9 +5,12 @@
     <!--jQuery-->
     <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--Bootstrap JS-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
     <!--Materialize-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <!--Materialize JS-->
@@ -36,13 +39,6 @@
 
 <div class="container">
 
-
-    <!--<div class="row">-->
-        <!--<a class="waves-effect waves-light btn" id="allButton">All</a>-->
-        <!--<a class="waves-effect waves-light btn" id="occupiedButton">Occupied</a>-->
-        <!--<a class="waves-effect waves-light btn" id="unoccupiedButton">Unoccupied</a>-->
-        <!--<a class="waves-effect waves-light btn" id="archivedButton">Archived</a>-->
-    <!--</div>-->
     <div class="row">
         <ul class="nav nav-pills" role="tablelist">
             <li role="presentation" class="active"><a href="#">All</a></li>
@@ -70,10 +66,15 @@
                 </div>
             </div>
         </div>
+
+
         <div class="col-sm-2">
             <div class="card">
                 <div class="card-image">
-                    <img src="assets/images/add.png">
+                    <!--modal trigger-->
+                    <a class="modal-trigger" href="#modal1">
+                        <img src="assets/images/add.png">
+                    </a> <!--end modal trigger-->
                     <span class="card-title"></span>
                 </div>
                 <div class="card-content">
@@ -82,20 +83,102 @@
             </div>
         </div>
     </div>
+
+
+    <!-- modal structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Add New Property</h4>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="prop_name" type="text" class="validate">
+                        <label for="prop_name">Property Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="prop_address" type="text" class="validate">
+                        <label for="prop_address">Property Address</label>
+                    </div>
+                    </div>
+                <div class="row">
+                    <form action="#">
+                        <p>
+                            <input name="group1" type="radio" id="house" />
+                            <label for="house">House</label>
+                        </p>
+                        <p>
+                            <input name="group1" type="radio" id="condo" />
+                            <label for="condo">Condo</label>
+                        </p>
+                        <p>
+                            <input name="group1" type="radio" id="townHome" />
+                            <label for="townHome">Townhouse</label>
+                        </p>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="prop_bed" type="text" class="validate">
+                        <label for="prop_bed"># of Bedrooms</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="prop_bath" type="text" class="validate">
+                        <label for="prop_bath"># of Bathrooms</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="prop_sqft" type="text" class="validate">
+                        <label for="prop_sqft">Square Feet</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="prop_description" class="materialize-textarea"></textarea>
+                        <label for="prop_description">Property Description</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">ADD</a>
+        </div>
+    </div>
+    <!--end modal-->
+
+
     <div class="panel">
         <div class="panel-heading">Reminders Summary</div>
         <div class="panel-body">
-            <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse suspendisse diam urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus risus adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices tempor tellus proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet condimentum duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo ullamcorper maecenas quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
+            <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse suspendisse diam
+                urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus risus
+                adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices tempor tellus
+                proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet condimentum
+                duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo ullamcorper maecenas
+                quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
 
-           <p>Ut inceptos feugiat ad a primis sit sit adipiscing a cubilia nam mus commodo tempus a adipiscing dolor mattis at condimentum. Etiam consectetur vestibulum arcu ad dui montes elit parturient suspendisse adipiscing potenti praesent malesuada venenatis leo non a eleifend commodo leo a vitae bibendum suspendisse. Neque himenaeos consectetur elementum et interdum et id arcu condimentum egestas a a adipiscing at vestibulum consectetur natoque dignissim neque massa in adipiscing nec a facilisis fringilla.</p>
+            <p>Ut inceptos feugiat ad a primis sit sit adipiscing a cubilia nam mus commodo tempus a adipiscing dolor
+                mattis at condimentum. Etiam consectetur vestibulum arcu ad dui montes elit parturient suspendisse
+                adipiscing potenti praesent malesuada venenatis leo non a eleifend commodo leo a vitae bibendum
+                suspendisse. Neque himenaeos consectetur elementum et interdum et id arcu condimentum egestas a a
+                adipiscing at vestibulum consectetur natoque dignissim neque massa in adipiscing nec a facilisis
+                fringilla.</p>
         </div>
     </div>
     <div class="panel">
         <div class="panel-heading">Year-to-date Summary</div>
         <div class="panel-body">
-            <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse suspendisse diam urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus risus adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices tempor tellus proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet condimentum duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo ullamcorper maecenas quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
+            <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse suspendisse diam
+                urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus risus
+                adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices tempor tellus
+                proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet condimentum
+                duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo ullamcorper maecenas
+                quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
 
-            <p>Ut inceptos feugiat ad a primis sit sit adipiscing a cubilia nam mus commodo tempus a adipiscing dolor mattis at condimentum. Etiam consectetur vestibulum arcu ad dui montes elit parturient suspendisse adipiscing potenti praesent malesuada venenatis leo non a eleifend commodo leo a vitae bibendum suspendisse. Neque himenaeos consectetur elementum et interdum et id arcu condimentum egestas a a adipiscing at vestibulum consectetur natoque dignissim neque massa in adipiscing nec a facilisis fringilla.</p>
+            <p>Ut inceptos feugiat ad a primis sit sit adipiscing a cubilia nam mus commodo tempus a adipiscing dolor
+                mattis at condimentum. Etiam consectetur vestibulum arcu ad dui montes elit parturient suspendisse
+                adipiscing potenti praesent malesuada venenatis leo non a eleifend commodo leo a vitae bibendum
+                suspendisse. Neque himenaeos consectetur elementum et interdum et id arcu condimentum egestas a a
+                adipiscing at vestibulum consectetur natoque dignissim neque massa in adipiscing nec a facilisis
+                fringilla.</p>
         </div>
     </div>
 

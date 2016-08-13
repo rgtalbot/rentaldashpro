@@ -12,22 +12,6 @@ nav {
     margin: 10px;
 }
 
-/*#allButton {*/
-    /*background-color: #2db34a;*/
-/*}*/
-
-/*#occupiedButton {*/
-    /*background-color: #00B7FF;*/
-/*}*/
-
-/*#unoccupiedButton {*/
-    /*background-color: #c9302c;*/
-/*}*/
-
-/*#archivedButton {*/
-    /*background-color: #8c8c8c;*/
-/*}*/
-
 .panel-heading {
     background-color: #2db34a;
     color: white;
@@ -35,4 +19,8 @@ nav {
 
 .panel {
     border: 1px solid #2db34a;
+}
+
+nav a:hover {
+    text-decoration: none;
 }
