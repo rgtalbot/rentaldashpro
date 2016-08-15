@@ -1,10 +1,18 @@
-.nav-wrapper, .container {
+.container-fluid, .container {
     max-width: 1170px;
     margin: 0 auto;
 }
+.container-fluid {
+    min-height: 80px;
+}
 
+.myNav a {
+    color: #76FFCE;
+    font-size: 18px;
+}
 nav {
-    background-color: #2db34a;
+    background-color: #468C84;
+    color: #76FFCE;
 }
 
 .row {
@@ -13,14 +21,11 @@ nav {
 }
 
 .panel-heading {
-    background-color: #2db34a;
-    color: white;
+    background-color: #468C84;
+    color: #76FFCE;
 }
 
 .panel {
-    border: 1px solid #2db34a;
+    border: 1px solid #468C84;
 }
 
-nav a:hover {
-    text-decoration: none;
-}
