@@ -39,7 +39,7 @@
 
 #logoTop {
     margin-left: 30px;
-    width: 90px;
+    width: 60px;
 }
 
 .user {
@@ -55,3 +55,4 @@
 .one {
     background-image: url('assets/images/headshot.jpg');
 }
+body { padding-top: 50px; }
