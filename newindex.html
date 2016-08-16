@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+<nav class="navbar" role="navigation">
+    <div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img alt="logo" src="assets/images/rdp.png" id="logoTop">
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Username Here</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    RENTAL<span id="dash">DASH</span> PRO
+                </a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-dashboard"></span>  Overview</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-folder-open"></span>  My Rental Documents</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-signal"></span> Financial Performance</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-calendar"></span> Owner Reminders</a>
+            </li>
+            <li>
+                <a href="#"> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>  Account Settings</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="nav nav-pills" role="tablelist">
+                    <li role="presentation" class="active"><a href="#">All</a></li>
+                    <li role="presentation"><a href="#">Occupied</a></li>
+                    <li role="presentation"><a href="#">Unoccupied</a></li>
+                    <li role="presentation"><a href="#">Archived</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="assets/images/house1.jpg">
+                        <div class="caption">
+                            <p class="text-center">Simple Information about this house</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <div class="thumbnail">
+                        <img class="img-responsive" src="assets/images/house2.jpg">
+                        <div class="caption">
+                            <p class="text-center">Simple Information about this house</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                    <a href="#formModal" data-toggle="modal">
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="assets/images/add.png">
+                            <div class="caption">
+                                <p class="text-center">Add new property</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!--modal structure -->
+            <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="formModalTitle">Add New Property</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="prop_name">Property Name</label>
+                                    <input type="text" class="form-control" id="prop_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="prop_address">Property Address</label>
+                                    <input type="text" class="form-control" id="prop_address">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-check-inline">
+                                        <input class="form-check-input" type="radio" name="propertyOptions" id="condo"
+                                               value="Condo"> Condo
+                                    </label>
+                                    <label class="form-check-inline">
+                                        <input class="form-check-input" type="radio" name="propertyOptions"
+                                               id="townHouse"
+                                               value="Townhouse"> Townhouse
+                                    </label>
+                                    <label class="form-check-inline">
+                                        <input class="form-check-input" type="radio" name="propertyOptions" id="house"
+                                               value="House"> House
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <label for="prop_bed"># of Bedrooms</label>
+                                            <input type="number" class="form-control" id="prop_bed">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label for="prop_bath"># of Bathrooms</label>
+                                            <input type="number" class="form-control" id="prop_bath">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label for="prop_sqft">Square Feet</label>
+                                            <input type="number" class="form-control" id="prop_sqft" \>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prop_description">Property Description</label>
+                                    <textarea id="prop_description" class="form-control" rows="3"></textarea>
+                                </div>
+                            </form>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--end modal-->
+
+
+            <div class="panel">
+                <div class="panel-heading">Reminders Summary</div>
+                <div class="panel-body">
+                    <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse
+                        suspendisse
+                        diam
+                        urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus risus
+                        adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices tempor
+                        tellus
+                        proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet
+                        condimentum
+                        duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo ullamcorper
+                        maecenas
+                        quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
+
+                    <p>Ut inceptos feugiat ad a primis sit sit adipiscing a cubilia nam mus commodo tempus a adipiscing
+                        dolor
+                        mattis at condimentum. Etiam consectetur vestibulum arcu ad dui montes elit parturient
+                        suspendisse
+                        adipiscing potenti praesent malesuada venenatis leo non a eleifend commodo leo a vitae bibendum
+                        suspendisse. Neque himenaeos consectetur elementum et interdum et id arcu condimentum egestas a
+                        a
+                        adipiscing at vestibulum consectetur natoque dignissim neque massa in adipiscing nec a facilisis
+                        fringilla.</p>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">Year-to-date Summary</div>
+                <div class="panel-body">
+                    <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse
+                        suspendisse
+                        diam
+                        urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus risus
+                        adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices tempor
+                        tellus
+                        proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet
+                        condimentum
+                        duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo ullamcorper
+                        maecenas
+                        quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
+
+                    <p>Ut inceptos feugiat ad a primis sit sit adipiscing a cubilia nam mus commodo tempus a adipiscing
+                        dolor
+                        mattis at condimentum. Etiam consectetur vestibulum arcu ad dui montes elit parturient
+                        suspendisse
+                        adipiscing potenti praesent malesuada venenatis leo non a eleifend commodo leo a vitae bibendum
+                        suspendisse. Neque himenaeos consectetur elementum et interdum et id arcu condimentum egestas a
+                        a
+                        adipiscing at vestibulum consectetur natoque dignissim neque massa in adipiscing nec a facilisis
+                        fringilla.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"
+        integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+</body>
+
+</html>

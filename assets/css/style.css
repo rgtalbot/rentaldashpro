@@ -2,21 +2,12 @@
     z-index: 1051 !important;
 }
 
-.container-fluid, .container {
+.container {
     max-width: 1170px;
     margin: 0 auto;
 }
 .container-fluid {
     min-height: 80px;
-}
-
-.myNav a {
-    color: #76FFCE;
-    font-size: 18px;
-}
-nav {
-    background-color: #468C84;
-    color: #76FFCE;
 }
 
 .row {
@@ -32,4 +23,35 @@ nav {
 .panel {
     border: 1px solid #468C84;
 }
+.image {
+    max-height: 200px;
+    max-width: 200px;
+}
 
+/*nav stuff*/
+.navContainer {
+    min-height: 75px;
+}
+
+#dash {
+    color: #408A82;
+}
+
+#logoTop {
+    margin-left: 30px;
+    width: 90px;
+}
+
+.user {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.one {
+    background-image: url('assets/images/headshot.jpg');
+}
