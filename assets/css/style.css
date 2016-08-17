@@ -42,17 +42,27 @@
     width: 60px;
 }
 
-.user {
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+body {
+    padding-top: 50px;
 }
 
-.one {
-    background-image: url('assets/images/headshot.jpg');
+.activeSide {
+    border-left: solid 5px #408A82;
+    background-color: #1B4556;
 }
-body { padding-top: 50px; }
+
+
+.sidebar-nav li {
+    position: relative;
+}
+
+.sidebar-nav li .glyphicon-menu-right {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+
+.container-fluid .row ul .activeTab a{
+    background-color: #408A82;
+    color: #D6EDEC;
+}

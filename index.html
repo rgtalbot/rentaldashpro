@@ -52,8 +52,8 @@
                     RENTAL<span id="dash">DASH</span> PRO
                 </a>
             </li>
-            <li>
-                <a href="#"><span class="glyphicon glyphicon-dashboard"></span>  Overview</a>
+            <li class="activeSide">
+                <a href="index.html"><span class="glyphicon glyphicon-dashboard"></span>  Overview  <span class="glyphicon glyphicon-menu-right"></span></a>
             </li>
             <li>
                 <a href="#"><span class="glyphicon glyphicon-folder-open"></span>  My Rental Documents</a>
@@ -74,16 +74,19 @@
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <div class="container-fluid">
+            <div class="page-header">
+                <h2>My Rentals</h2>
+            </div>
             <div class="row">
-                <ul class="nav nav-pills" role="tablelist">
-                    <li role="presentation" class="active"><a href="#">All</a></li>
+                <ul class="nav nav-tabs" role="tablelist">
+                    <li role="presentation" class="active activeTab"><a href="#">All</a></li>
                     <li role="presentation"><a href="#">Occupied</a></li>
                     <li role="presentation"><a href="#">Unoccupied</a></li>
                     <li role="presentation"><a href="#">Archived</a></li>
                 </ul>
             </div>
 
-            <div class="row">
+            <div class="row ownerList">
                 <div class="col-xs-6 col-md-4 col-lg-3">
                     <div class="thumbnail">
                         <img class="img-responsive" src="assets/images/house1.jpg">
@@ -172,7 +175,7 @@
                             </form>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn">ADD</button>
+                                <button type="button" class="btn modalAddBtn">ADD</button>
                             </div>
                         </div>
                     </div>
@@ -181,32 +184,16 @@
 
             <!--end modal-->
 
-
+            <div class="page-header">
+                <h2>Financial Summary</h2>
+            </div>
             <div class="panel">
-                <div class="panel-heading">Reminders Summary</div>
                 <div class="panel-body">
-                    <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse
-                        suspendisse
-                        diam
-                        urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus risus
-                        adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices tempor
-                        tellus
-                        proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet
-                        condimentum
-                        duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo ullamcorper
-                        maecenas
-                        quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
-
-                    <p>Ut inceptos feugiat ad a primis sit sit adipiscing a cubilia nam mus commodo tempus a adipiscing
-                        dolor
-                        mattis at condimentum. Etiam consectetur vestibulum arcu ad dui montes elit parturient
-                        suspendisse
-                        adipiscing potenti praesent malesuada venenatis leo non a eleifend commodo leo a vitae bibendum
-                        suspendisse. Neque himenaeos consectetur elementum et interdum et id arcu condimentum egestas a
-                        a
-                        adipiscing at vestibulum consectetur natoque dignissim neque massa in adipiscing nec a facilisis
-                        fringilla.</p>
+                <img src="assets/images/chart.png" class="img-responsive">
                 </div>
+            </div>
+            <div class="page-header">
+                <h2>Reminders</h2>
             </div>
             <div class="panel">
                 <div class="panel-heading">Year-to-date Summary</div>
