@@ -9,7 +9,13 @@
     -o-background-size: cover;
     background-size: cover;
 }
-
+#page-content-wrapper {
+    background-color: #f2f2f2;
+}
+.panel {
+    background-color: white;
+    box-shadow: 1 1 80px black;
+}
 .container {
     max-width: 1170px;
     margin: 0 auto;
@@ -24,6 +30,16 @@
 .nav li a:hover {
     text-decoration: none;
     background-color: #408A82;
+}
+
+.detailImage {
+    max-width: 200px;
+    float: left;
+    margin-right:40px;
+}
+
+.details {
+    max-height: 50px;
 }
 
 .container-fluid {
@@ -77,10 +93,6 @@
 
 .navbarMain {
     background-color: #408A82   ;
-}
-
-.panel {
-    border: 3px solid #468C84;
 }
 
 .image {
