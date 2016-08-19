@@ -25,4 +25,23 @@ $(document).on("click",".modalAddBtn",function() {
 
     $('.modal').modal('toggle');
 
+
+
+    function authWithPassword(userObj) {
+        var deferred = $.Deferred();
+        console.log(userObj);
+        rootRef.authWithPassword(userObj, function onAuth(err, user) {
+            if (err) {
+                deferred.reject(err);
+            }
+
+            if (user) {
+                deferred.resolve(user);
+            }
+
+        });
+
+        return deferred.promise();
+    }
+
 });
