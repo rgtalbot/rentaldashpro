@@ -23,26 +23,27 @@
 
 </head>
 
-<body>
+<body class="body">
 
 
-<nav class="navbar navbar-default navbar-fixed-top navbarLogin" role="navigation">
+<nav class="navbar navbar-fixed-top navbarLogin" role="navigation">
     <div>
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
                 <img alt="logo" src="assets/images/rdpwhite.png" id="logoTop">
             </a>
-            <div class="rentaldash" style="float: left">
-                <p style="font-size: 24px; margin:0">RENTAL<span id="dash">DASH</span> PRO</p>
-                <p style="font-size: 10px; margin: 0">PROPERTY OWNER DASHBOARD</p>
-            </div>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><button class="btn" id="signupButton" data-toggle="modal" data-target="#signUpModal">SIGN UP</button></li>
         </ul>
     </div>
 </nav>
+<div class="rentaldash">
+    <p style="font-size: 36px">RENTAL<span id="dash">DASH</span> PRO</p>
+    <p style="font-size: 18px">PROPERTY OWNER DASHBOARD</p>
+</div>
 <div id="loginWrapper">
+
     <form>
         <div class="form-group text-center">
             <input type="text" id="username" placeholder="username" class="form-control">
@@ -52,6 +53,9 @@
         </div>
     </form>
     <button class="btn" id="loginButton"">LOG IN</button>
+    <div class="forgot text-right">
+        <a href="#">forgot password?</a>
+    </div>
 </div>
 
 <!--modal structure -->
@@ -72,7 +76,7 @@
                     </div>
                     <div class="form-group">
                         <label for="signup_email">Email</label>
-                        <input type="text" class="form-control" id="signup_email">
+                        <input type="email" class="form-control" id="signup_email">
                     </div>
                     <div class="form-group">
                         <label for="signup_password">Password</label>
