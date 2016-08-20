@@ -3,9 +3,9 @@ $(document).on("click",".modalAddBtn",function() {
 
     var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3");
 
-    var houseDiv = $('<div>').addClass("thumbnail");
+    var houseDiv = $('<div>').addClass("rdp-photo-card-property");
 
-    var houseImg = $('<img>').addClass("img-responsive")
+    var houseImg = $('<img>').addClass("rdp-photo-card-img")
         .attr("src", "assets/images/house2.jpg");
 
     var houseDiv2 = $('<div>')
@@ -13,7 +13,7 @@ $(document).on("click",".modalAddBtn",function() {
 
     var housePara = $('<p>')
         .addClass("text-center")
-        .text("Simple Information about this house");
+        .text("Information about this property");
 
     housePara.appendTo(houseDiv2);
     houseImg.appendTo(houseDiv);

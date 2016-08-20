@@ -1,20 +1,25 @@
 var validated = false;
 var count = 0 ;
+var countType = 0;
 
-$(document).on("click",".modalAddBtn",function(e) {
+$('.modalAddBtn').click(function() {
     console.log('add button clicked, add property');
 
-    e.preventDefault();
+
+
+    console.log("count is : " + count);
 
     validateForm();
 
-    if(count==5){
+
+    console.log("count is before if : " + count);
+    if(count==6){
 
         var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3");
 
-        var houseDiv = $('<div>').addClass("thumbnail");
+        var houseDiv = $('<div>').addClass("rdp-photo-card-property");
 
-        var houseImg = $('<img>').addClass("img-responsive")
+        var houseImg = $('<img>').addClass("rdp-photo-card-img")
             .attr("src", "assets/images/house2.jpg");
 
         var houseDiv2 = $('<div>')
@@ -22,7 +27,7 @@ $(document).on("click",".modalAddBtn",function(e) {
 
         var housePara = $('<p>')
             .addClass("text-center")
-            .text("Simple Information about this house");
+            .text("Information about this property");
 
         housePara.appendTo(houseDiv2);
         houseImg.appendTo(houseDiv);
@@ -34,33 +39,24 @@ $(document).on("click",".modalAddBtn",function(e) {
 
         $('.modal').modal('toggle');
 
+
+
     }
-
-    function authWithPassword(userObj) {
-        var deferred = $.Deferred();
-        console.log(userObj);
-        rootRef.authWithPassword(userObj, function onAuth(err, user) {
-            if (err) {
-                deferred.reject(err);
-            }
-
-            if (user) {
-                deferred.resolve(user);
-            }
-
-        });
-
-        return deferred.promise();
-    }
+    return false;
 
 });
 
 
 
 function validateForm(){
+    count =0;
+    countType =0;
+
+    console.log("count: "+ count);
 
     var propertyName = document.getElementById('prop_name').value;
     if(propertyName==""){
+
         alert("Please add a Property Name.");
         count=0;
         // return false;
@@ -110,5 +106,31 @@ function validateForm(){
     }
 
     console.log("count is :" + count);
+
+    var condo = document.getElementById('condo').checked.toString();
+    console.log("condo: "+ condo);
+    var townHouse = document.getElementById('townHouse').checked.toString();
+    console.log("townHouse: "+ townHouse);
+    var house = document.getElementById('house').checked.toString();
+    console.log("HOUSE: "+ house);
+
+
+    if(condo == "true" || townHouse == "true" || house == "true"){
+        countType++;
+
+        console.log("countype is: " + countType);
+        // return false;
+    }
+
+    if(countType >= 1){
+        count++;
+    } else{
+        alert("Please select one valid House type.");
+        count =0;
+        countType = 0;
+    }
+
+
+
 
 }
