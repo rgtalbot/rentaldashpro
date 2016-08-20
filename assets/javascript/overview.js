@@ -12,9 +12,9 @@ var database = firebase.database();
 console.log()
 
 
-var validated = false;
+
 var count = 0 ;
-var countType = 0;
+
 
 $('.modalAddBtn').click(function() {
     var property =
@@ -33,7 +33,7 @@ $('.modalAddBtn').click(function() {
 
 
     console.log("count is before if : " + count);
-    if(count==5){
+    if(count==6){
         buildCard();
 
     }
@@ -100,6 +100,15 @@ function validateForm(property){
 
     console.log("count is :" + count);
 
+    if(property.type == "Condo" || property.type == "House" || property.type == "Townhouse" ){
+        count++;
+
+        console.log(property.type);
+
+    }else{
+        alert("Please select one valid House type.");
+        count=0;
+    }
 
     // if(property.condo == "true" || property.townHouse == "true" || property.house == "true"){
     //     countType++;
