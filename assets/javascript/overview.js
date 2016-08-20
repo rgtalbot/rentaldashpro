@@ -35,12 +35,20 @@ $('.modalAddBtn').click(function() {
     console.log("count is before if : " + count);
     if(count==6){
         buildCard();
+        $('#prop_name').val("");
+        $('#prop_address').val("");
+        $('#prop_bed').val("");
+        $('#prop_bath').val("");
+        $('#prop_sqft').val("");
+        $('#prop_description').val("");
+        $('#condo').prop('checked' , false);
+        $('#townHouse').prop('checked' , false);
+        $('#house').prop('checked' , false);    
 
-    }
+        }
     return false;
 
 });
-
 
 
 function validateForm(property){
