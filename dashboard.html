@@ -19,14 +19,13 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--sidebar script files-->
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <script src='assets/javascript/chart.js'></script>
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
 
 </head>
 
@@ -84,44 +83,34 @@
 
                     <div class="panel">
                         <div class="panel-body">
-                            <img src="assets/images/house1.jpg" class="detailImage">
+                            <div class="imgDetails">
+                                <img src="http://placehold.it/200x200" id="detailImage">
+                                <p><span id="addressDetail"></span></p>
+                            </div>
                             <div>
-                                <h4>Property Address</h4>
+                                <h4 id="nameDetails">Property Name</h4>
                                 <div class="row details">
                                     <div class="col-xs-2">
-
                                         <p># of Bedrooms</p>
+                                        <p id="bedroomDetail"></p>
                                     </div>
                                     <div class="col-xs-2">
-
                                         <p># of Bathrooms</p>
+                                        <p id="bathroomDetail"></p>
                                     </div>
                                     <div class="col-xs-2">
-
                                         <p>Square footage</p>
+                                        <p id="sqfeetDetail"></p>
                                     </div>
                                     <div class="col-xs-2">
-
-                                        <p>Year Built</p>
+                                        <p>Occupancy Status</p>
+                                        <p id="occupancyDetail"></p>
                                     </div>
-
                                 </div>
                                 <div class="row details">
-                                    <div class="col-xs-2">
-
-                                        <p>Heating</p>
-                                    </div>
-                                    <div class="col-xs-2">
-
-                                        <p>Lot Size</p>
-                                    </div>
-                                    <div class="col-xs-2">
-
-                                        <p>Parking</p>
-                                    </div>
-                                    <div class="col-xs-2">
-
-                                        <p>Occupancy Status</p>
+                                    <div class="col-xs-8">
+                                        <p>Property Description</p>
+                                        <p id="descriptionDetails"></p>
                                     </div>
                                 </div>
                             </div>
@@ -214,6 +203,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE&libraries=places&callback=initAutocomplete"></script>
 
 <script src="assets/javascript/script.js"></script>
+<script src="assets/javascript/details.js"></script>
 
 </body>
 

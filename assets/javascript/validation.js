@@ -1,6 +1,7 @@
 var validated = false;
 var count = 0 ;
 var countType = 0;
+<<<<<<< HEAD
 
 $('.modalAddBtn').click(function() {
     console.log('add button clicked, add property');
@@ -60,12 +61,43 @@ $('.modalAddBtn').click(function() {
     //     return deferred.promise();
     // }
 
+=======
+
+$('.modalAddBtn').click(function() {
+    var property =
+    {
+        propertyName: $('#prop_name').val().trim(),
+        propertyAddress: $('#prop_address').val().trim(),
+        bedrooms: $('#prop_bed').val().trim(),
+        bathrooms: $('#prop_bath').val().trim(),
+        square: $('#prop_sqft').val().trim(),
+        details: $('#prop_description').val().trim(),
+        condo: $('#condo').checked.toString(),
+        townHouse: $('#townHouse').checked.toString(),
+        house: $('#house').checked.toString()
+    };
+
+    validateForm(property);
+    database.ref().push(property);
+
+
+    console.log("count is before if : " + count);
+    if(count==6){
+        buildCard();
+
+    }
+>>>>>>> bb871a8a99657ef2f07f7ae3e16082fbb99a0437
     return false;
 
 });
 
 
+function validateForm(property){
+    count =0;
+    countType =0;
 
+
+<<<<<<< HEAD
 function validateForm(){
     count =0;
     countType =0;
@@ -75,48 +107,52 @@ function validateForm(){
     var propertyName = document.getElementById('prop_name').value;
     if(propertyName==""){
 
+=======
+    if(property.propertyName==""){
+
+>>>>>>> bb871a8a99657ef2f07f7ae3e16082fbb99a0437
         alert("Please add a Property Name.");
         count=0;
         // return false;
     }else {
         count++;
     }
-    var propertyAddress = document.getElementById('prop_address').value;
-    if(propertyAddress==""){
+
+    if(property.propertyAddress==""){
         alert("Please add a Property Address.");
         count=0;
         // return false;
     }else {
         count++;
     }
-    var bedrooms = document.getElementById('prop_bed').value;
-    if(bedrooms==""){
+
+    if(property.bedrooms==""){
         alert("Please add valid number for bedrooms.");
         count=0;
         // return false;
-    }else if(bedrooms<=0){
+    }else if(property.bedrooms<=0){
         alert("Please provide a value greater than zero.");
         count=0;
     }else {
         count++;
     }
-    var bathroom = document.getElementById('prop_bath').value;
-    if(bathroom==""){
+
+    if(property.bathroom==""){
         alert("Please add a valid bathroom count.");
         count=0;
         // return false;
-    }else if(bathroom<=0){
+    }else if(property.bathroom<=0){
         alert("Please provide a value greater than zero.");
         count=0;
     }else {
         count++;
     }
-    var square = document.getElementById('prop_sqft').value;
-    if(square==""){
+
+    if(property.square==""){
         alert("Please add a valid number for square feet");
         count=0;
         // return false;
-    }else if(square<=0){
+    }else if(property.square<=0){
         alert("Please provide a value greater than zero.");
         count=0;
     }else {
@@ -125,6 +161,7 @@ function validateForm(){
 
     console.log("count is :" + count);
 
+<<<<<<< HEAD
     var condo = document.getElementById('condo').checked.toString();
     console.log("condo: "+ condo);
     var townHouse = document.getElementById('townHouse').checked.toString();
@@ -134,6 +171,10 @@ function validateForm(){
   
 
     if(condo == "true" || townHouse == "true" || house == "true"){
+=======
+
+    if(property.condo == "true" || property.townHouse == "true" || property.house == "true"){
+>>>>>>> bb871a8a99657ef2f07f7ae3e16082fbb99a0437
         countType++;
 
         console.log("countype is: " + countType);
@@ -150,5 +191,9 @@ function validateForm(){
 
 
 
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> bb871a8a99657ef2f07f7ae3e16082fbb99a0437
 }

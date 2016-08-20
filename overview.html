@@ -19,14 +19,12 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--sidebar script files-->
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <script src='assets/javascript/chart.js'></script>
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
 </head>
 
@@ -91,9 +89,9 @@
 
             <div class="row ownerList">
                 <div class="col-xs-6 col-md-4 col-lg-3">
-                    <div class="thumbnail">
+                    <div class="rdp-photo-card-property">
                         <a href="dashboard.html">
-                        <img class="img-responsive" src="assets/images/house1.jpg">
+                        <img class="rdp-photo-card-img" src="assets/images/house1.jpg">
                             </a>
                         <div class="img-caption">
                             <p class="text-center">Information about this property</p>
@@ -101,8 +99,8 @@
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-4 col-lg-3">
-                    <div class="thumbnail">
-                        <img class="img-responsive" src="assets/images/house2.jpg">
+                    <div class="rdp-photo-card-property">
+                        <img class="rdp-photo-card-img" src="assets/images/house2.jpg">
                         <div class="img-caption">
                             <p class="text-center">Information about this property</p>
                         </div>
@@ -110,8 +108,8 @@
                 </div>
                 <div class="col-xs-6 col-md-4 col-lg-3">
                     <a href="#formModal" data-toggle="modal">
-                        <div class="thumbnail">
-                            <img class="img-responsive" src="assets/images/add.png">
+                        <div class="rdp-photo-card-property">
+                            <img class="rdp-photo-card-img" src="assets/images/add.png">
                             <div class="img-caption">
                                 <p class="text-center">Select to add a new property</p>
                             </div>
@@ -157,7 +155,7 @@
                                                value="House"> House
                                     </label>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" name="type">
                                     <div class="row">
                                         <div class="col-xs-4">
                                             <label for="prop_bed"># of Bedrooms</label>
@@ -273,8 +271,7 @@
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE&libraries=places&callback=initAutocomplete"></script>
 
-<script src="assets/javascript/script.js"></script>
-<script src="assets/javascript/validation.js"></script>
+<script src="assets/javascript/overview.js"></script>
 
 </body>
 
