@@ -74,6 +74,7 @@ function validateForm(){
 
     var propertyName = document.getElementById('prop_name').value;
     if(propertyName==""){
+
         alert("Please add a Property Name.");
         count=0;
         // return false;
