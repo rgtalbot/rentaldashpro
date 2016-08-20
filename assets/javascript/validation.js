@@ -3,43 +3,26 @@ var count = 0 ;
 var countType = 0;
 
 $('.modalAddBtn').click(function() {
-    console.log('add button clicked, add property');
+    var property =
+    {
+        propertyName: $('#prop_name').val().trim(),
+        propertyAddress: $('#prop_address').val().trim(),
+        bedrooms: $('#prop_bed').val().trim(),
+        bathrooms: $('#prop_bath').val().trim(),
+        square: $('#prop_sqft').val().trim(),
+        details: $('#prop_description').val().trim(),
+        condo: $('#condo').checked.toString(),
+        townHouse: $('#townHouse').checked.toString(),
+        house: $('#house').checked.toString()
+    };
 
-
-
-    console.log("count is : " + count);
-
-    validateForm();
+    validateForm(property);
+    database.ref().push(property);
 
 
     console.log("count is before if : " + count);
     if(count==6){
-
-        var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3");
-
-        var houseDiv = $('<div>').addClass("rdp-photo-card-property");
-
-        var houseImg = $('<img>').addClass("rdp-photo-card-img")
-            .attr("src", "assets/images/house2.jpg");
-
-        var houseDiv2 = $('<div>')
-            .addClass("caption");
-
-        var housePara = $('<p>')
-            .addClass("text-center")
-            .text("Information about this property");
-
-        housePara.appendTo(houseDiv2);
-        houseImg.appendTo(houseDiv);
-        houseDiv2.appendTo(houseDiv);
-        houseDiv.appendTo(houseCol);
-
-
-        $('.ownerList').prepend(houseCol);
-
-        $('.modal').modal('toggle');
-
-
+        buildCard();
 
     }
     return false;
@@ -47,15 +30,12 @@ $('.modalAddBtn').click(function() {
 });
 
 
-
-function validateForm(){
+function validateForm(property){
     count =0;
     countType =0;
 
-    console.log("count: "+ count);
 
-    var propertyName = document.getElementById('prop_name').value;
-    if(propertyName==""){
+    if(property.propertyName==""){
 
         alert("Please add a Property Name.");
         count=0;
@@ -63,42 +43,42 @@ function validateForm(){
     }else {
         count++;
     }
-    var propertyAddress = document.getElementById('prop_address').value;
-    if(propertyAddress==""){
+
+    if(property.propertyAddress==""){
         alert("Please add a Property Address.");
         count=0;
         // return false;
     }else {
         count++;
     }
-    var bedrooms = document.getElementById('prop_bed').value;
-    if(bedrooms==""){
+
+    if(property.bedrooms==""){
         alert("Please add valid number for bedrooms.");
         count=0;
         // return false;
-    }else if(bedrooms<=0){
+    }else if(property.bedrooms<=0){
         alert("Please provide a value greater than zero.");
         count=0;
     }else {
         count++;
     }
-    var bathroom = document.getElementById('prop_bath').value;
-    if(bathroom==""){
+
+    if(property.bathroom==""){
         alert("Please add a valid bathroom count.");
         count=0;
         // return false;
-    }else if(bathroom<=0){
+    }else if(property.bathroom<=0){
         alert("Please provide a value greater than zero.");
         count=0;
     }else {
         count++;
     }
-    var square = document.getElementById('prop_sqft').value;
-    if(square==""){
+
+    if(property.square==""){
         alert("Please add a valid number for square feet");
         count=0;
         // return false;
-    }else if(square<=0){
+    }else if(property.square<=0){
         alert("Please provide a value greater than zero.");
         count=0;
     }else {
@@ -107,15 +87,8 @@ function validateForm(){
 
     console.log("count is :" + count);
 
-    var condo = document.getElementById('condo').checked.toString();
-    console.log("condo: "+ condo);
-    var townHouse = document.getElementById('townHouse').checked.toString();
-    console.log("townHouse: "+ townHouse);
-    var house = document.getElementById('house').checked.toString();
-    console.log("HOUSE: "+ house);
 
-
-    if(condo == "true" || townHouse == "true" || house == "true"){
+    if(property.condo == "true" || property.townHouse == "true" || property.house == "true"){
         countType++;
 
         console.log("countype is: " + countType);
