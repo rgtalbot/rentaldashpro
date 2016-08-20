@@ -13,10 +13,12 @@ console.log()
 
 
 
-var count = 0 ;
+var count = 0,
+    uniqueID;
 
 
 $('.modalAddBtn').click(function() {
+
     var property =
     {
         name: $('#prop_name').val().trim(),
@@ -29,12 +31,21 @@ $('.modalAddBtn').click(function() {
     };
     console.log(property);
     validateForm(property);
-    database.ref('properties').push(property);
-
+    uniqueID = database.ref('properties').push(property).key;
+    console.log(uniqueID);
 
     console.log("count is before if : " + count);
     if(count==6){
         buildCard();
+        $('#prop_name').val("");
+        $('#prop_address').val("");
+        $('#prop_bed').val("");
+        $('#prop_bath').val("");
+        $('#prop_sqft').val("");
+        $('#prop_description').val("");
+        $('#condo').prop('checked' , false);
+        $('#townHouse').prop('checked' , false);
+        $('#house').prop('checked' , false);
 
     }
     return false;

@@ -8,8 +8,8 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-
-database.ref('Property1').on("value", function (childSnapshot, key) {
+var uniqueID = "-KPdOsp8UGW7IzhyW2cE";
+database.ref('properties/'+uniqueID).on("value", function (childSnapshot, key) {
 
     var propName = childSnapshot.val().name;
     var propAddress = childSnapshot.val().address;
@@ -32,3 +32,9 @@ database.ref('Property1').on("value", function (childSnapshot, key) {
 
 });
 
+
+$('#plus').on('click', function() {
+
+
+
+});
