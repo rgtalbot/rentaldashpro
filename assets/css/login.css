@@ -1,0 +1,64 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url('../img/background_login.jpg');
+    background-position: top;
+    background-size: cover;
+}
+
+hr {
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+
+#login-wrapper {
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
+    color: #fff;
+}
+
+#dash {
+    color: #408A82;
+}
+
+#login-btn, #signup-btn {
+    background-color: #2b6970;
+    color: #fff;
+}
+
+.forgot-password {
+    padding-top: 5px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.rental-dash {
+    width: 500px;
+    margin: 25px auto 30px auto;
+    text-align: center;
+    color: #fff;
+}
+
+.rental-dash p {
+    font-weight: 900;
+    font-size: 38px;
+    margin: 0;
+}
+
+.rental-dash img {
+    margin-bottom: 25px;
+    width: 150px;
+}
+
+.owner-dash {
+    font-size: 18px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.alert-messages {
+    height: 75px;
+}
