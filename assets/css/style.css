@@ -2,13 +2,6 @@
     z-index: 1051 !important;
 }
 
-.body {
-    background: url("../images/background.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
 #page-content-wrapper {
     background-color: #f2f2f2;
 }
@@ -109,10 +102,6 @@
     margin-right: 30px;
 }
 
-.navbar {
-    height: 70px;
-}
-
 .navbarLogin {
     background-color: #102c3f;
     color: white;
@@ -137,7 +126,7 @@
     display: block;
     width: 100%;
     height: 200px;
-    
+
 }
 .rdp-photo-card-property {
     width: 200px;
@@ -170,9 +159,6 @@
     width: 60px;
 }
 
-body {
-    padding-top: 50px;
-}
 
 .activeSide {
     border-left: solid 5px #408A82;
@@ -310,3 +296,117 @@ body {
         margin-right: 0;
     }
 }
+
+/*==================================================================
+--------------- EVERYTHING BELOW THIS POINT IS NEW ---------------
+==================================================================*/
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,900';
+
+* { font-family: 'Roboto', sans-serif; }
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Move down content because fixed navbar that is 50px tall */
+    padding-top: 50px;
+    /* IMPORTANT NOTE: Set margin bottom equal to footer height set below */
+    margin-bottom: 60px;
+}
+
+/* ----------- Fixed Navbar ----------- */
+.navbar-fixed-top {
+    background-color: #fff;
+    padding-top: 2px;
+    border-top: 4px solid #1d8278;
+    box-shadow: 0 7px 6px -6px #777;
+}
+
+.navbar-brand { padding: 7px 0px; }
+.navbar-brand>img { display: inline-block; }
+
+.header-brand {
+    font-weight: 900;
+    font-size: 18px;
+    color: #0F2E35;
+}
+
+.dash { color: #1D8278; }
+
+.dashboard-btn {
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 6px 16px;
+    text-decoration: none!important;
+    color: #fff!important;
+    background-color: #1d8278;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    /*border: none;
+    display: inline-block;
+    outline: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+    overflow: hidden;*/
+}
+
+/* ----------- Main Content ----------- */
+.jumbotron {
+    height: 600px;
+    margin-bottom: 0;
+    background-image: url('../img/background_login.jpg');
+    background-position: top;
+    background-size: cover;
+
+}
+
+.content-section {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.section-rentals {
+    height: 325px;
+    background-color: #fff;
+}
+
+.section-documents {
+    height: 275px;
+    background-color: #438B83;
+}
+
+.section-finance {
+    height: 300px;
+    background-color: #fff;
+}
+
+.section-maintenance {
+    height: 300px;
+    background-color: #1D4455;
+}
+
+/* ----------- Footer ----------- */
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+}
+
+.footer>.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.container .text-muted {
+    color: #0f333c;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+/* ----------- Media Queries ----------- */
