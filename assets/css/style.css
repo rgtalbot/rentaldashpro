@@ -42,6 +42,20 @@
     font-size: 10px;
 }
 
+.caption {
+    position: absolute;
+    top: 160px;
+    left: 0;
+    right: 0;
+    background-color: black;
+    color: white;
+    height: 40px;
+    padding: 3px;
+    font-size:10px;
+}
+
+
+
 #plus {
     position: absolute;
     top: 5px;
@@ -142,7 +156,8 @@
 .rdp-photo-card-property {
     width: 200px;
     height: 200px;
-
+    position: relative;
+    margin: 10px;
 }
 
 .rentaldash {
@@ -309,4 +324,10 @@ body {
         position: relative;
         margin-right: 0;
     }
+}
+
+#yourID {
+    width:200px;
+    height: 200px;
+    position: relative;
 }

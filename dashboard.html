@@ -17,6 +17,7 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/croppic.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!--sidebar script files-->
@@ -86,8 +87,27 @@
                             <div class="imgDetails">
                                 <img src="http://placehold.it/200x200" id="detailImage">
                                 <p><span id="addressDetail"></span></p>
-                                <span><img id="plus" src="assets/images/plus.png"</span>
+                                <span><a href="#picModal" data-toggle="modal"><img id="plus" src="assets/images/plus.png"></a></span>
                             </div>
+                            <!--modal structure-->
+                            <div class="modal fade" id="picModal" tabindex="-1" role="dialog" aria-labelledby="mypicModal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span></button>
+                                            <h4 class="modal-title" id="picModalTitle">Upload an Image</h4>
+                                            <div class="modal-body">
+                                                <input id="previewFilePath" type="file" onchange="filePreview()"><br>
+                                                <img src="" height="200" id="previewFile" alt="Image preview ... ">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn modalUpload">Upload Image</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end modal-->
                             <div>
                                 <h4 id="nameDetails">Property Name</h4>
                                 <div class="row details">
@@ -130,20 +150,7 @@
                     <div class="panel">
                         <div class="panel-heading">Maintenance Reminders</div>
                         <div class="panel-body">
-                            <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse
-                                suspendisse
-                                diam
-                                urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus
-                                risus
-                                adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices
-                                tempor
-                                tellus
-                                proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet
-                                condimentum
-                                duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo
-                                ullamcorper
-                                maecenas
-                                quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
+
                         </div>
                     </div>
                 </div>
@@ -172,11 +179,14 @@
             </div>
 
         </div>
+
     </div>
     <!-- /#page-content-wrapper -->
 
 </div>
 <!-- /#wrapper -->
+
+
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"
@@ -187,9 +197,8 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE&libraries=places&callback=initAutocomplete"></script>
 
+<!--chartJS-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
 <script>
     // line chart data
@@ -211,7 +220,6 @@
     new Chart(buyers).Line(buyerData);
 </script>
 
-<script src="assets/javascript/script.js"></script>
 <script src="assets/javascript/details.js"></script>
 
 </body>
