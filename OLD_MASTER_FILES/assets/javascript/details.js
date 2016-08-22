@@ -8,8 +8,8 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var uniqueID = "-KPdOsp8UGW7IzhyW2cE";
-database.ref('properties/'+uniqueID).on("value", function (childSnapshot, key) {
+var uniqueID = "-KPnesSJ89KEleJVd7UZ";
+database.ref('ownerProfiles/4XbtNvOf57REXofdwETCfpiOBKI2/properties/' + uniqueID).on("value", function (childSnapshot, key) {
 
     var propName = childSnapshot.val().name;
     var propAddress = childSnapshot.val().address;
@@ -31,10 +31,33 @@ database.ref('properties/'+uniqueID).on("value", function (childSnapshot, key) {
     $('#addressDetail').html(propAddress);
 
 });
+var file;
 
+$('.modalUpload').on('click', function () {
+    console.log($('#previewFile'));
+    console.log($('#previewFilePath'));
 
-$('#plus').on('click', function() {
-
-
+    var ref = firebase.storage().ref();
+    var upload = ref.child(file.name);
+    ref.put(upload).then(function (snapshot) {
+        console.log('Uploaded a blob or file!');
+    });
 
 });
+
+
+function filePreview() {
+    var preview = document.querySelector('#previewFile');
+    file = document.querySelector('input[type=file]').files[0];
+    var reader = new FileReader();
+
+    reader.addEventListener("load", function () {
+        preview.src = reader.result;
+    }, false);
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+
+    console.log(file.webkitRelativePath);
+}
