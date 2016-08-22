@@ -1,8 +1,9 @@
 # Rental Dash Pro
-
+visit us at [http://www.rentaldashpro.com](http://www.rentaldashpro.com "RentalDash Pro")
 
 ## Project Title
- Rental Dash Pro - Visit us at rentaldashpro.com
+Rental Dash Pro - Rental Property Management Dashboard
+
 ##Team Members
 George Witt
 
@@ -13,22 +14,22 @@ Brent Bentley
 Ronny Tomasetti
 
 ##Project Description
-Build a rental property management web application for property owners. Management portal will allow the
-property owner to keep track of property details such as financial reports, legal documents, rental contracts, and
-maintenance details/issues tracking.
+Our goal is to build a rental property management dashboard for property owners. The property management dashboard will allow property owners to keep track of property data such as financial reports, legal documents, rental contracts, maintenance details and issues tracking.
+
 ##List of APIs
-Trulia API to pull in available property data.
+1. Zillow API will be used to pull in available property data.
 
-Google Maps used for geocoding and location based services.
+2. Google Maps API will be used for geocoding and location based services.
 
-Nice to have,
+If possible, we may implement nice to have items below:
 
-Twilio API to send SMS text reminders and add to-do list items to your scheduler via SMS.
+3. Twilio API to send SMS text reminders and add maintenance items to your dashboard via SMS.
 
-WunderList - Schedulers and reminders.
+4. WunderList - Scheduler and reminders.
+
 ##Task Breakdown
-Front end - Ryan Talbot
+Front-End - Ryan Talbot
 
-API Integration and Documentation - George Witt
+API Integration/Documentation - George Witt
 
-Backend/Data Structure - Ronny Tomasetti & Brent Bentley
+Back-End - Ronny Tomasetti & Brent Bentley
