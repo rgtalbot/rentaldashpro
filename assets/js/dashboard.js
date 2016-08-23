@@ -16,8 +16,8 @@ var authData = firebase.auth();
 
 var count = 0,
     uniqueID,
-    ownerKey = firebase.auth().currentUser.uid;
-    // ownerKey ="4XbtNvOf57REXofdwETCfpiOBKI2";
+    // ownerKey = firebase.auth().currentUser.uid;
+    ownerKey ="4XbtNvOf57REXofdwETCfpiOBKI2";
 
 
 function buildCard() {
@@ -110,6 +110,57 @@ function testFunction() {
             $('#hoa-input').attr('value', hoa);
             $('#maint-input').attr('value', maint);
 
+            rent = parseInt(rent);
+            mortgage = parseInt(mortgage);
+            hoa = parseInt(hoa);
+            maint = parseInt(maint);
+
+            
+            var mortPie = (mortgage/rent)*100;
+            console.log(mortPie);
+            var hoaPie = (hoa/rent)*100;
+            console.log(hoaPie);
+            var maintPie = (maint/rent)*100;
+            console.log(maintPie);
+            console.log(rent);
+            console.log(hoa);
+            console.log(maint);
+            console.log(mortgage);
+            var extra = (maint+hoa+mortgage);
+            console.log(extra);
+            var extraR = rent-extra;
+            var extraT = (extraR/rent)*100;
+            console.log(extraT);
+
+            // pie chart data
+            var pieData = [
+                {
+                    value: mortPie,
+                    color:"red"
+                },
+                {
+                    value : hoaPie,
+                    color : "blue"
+                },
+                {
+                    value : maintPie,
+                    color : "yellow"
+                },
+                {
+                    value : extraT,
+                    color : "green"
+                }
+            ];
+            // pie chart options
+            var pieOptions = {
+                segmentShowStroke : false,
+                animateScale : true
+            };
+            // get pie chart canvas
+            var countries= document.getElementById("financialDetails").getContext("2d");
+            // draw pie chart
+            new Chart(countries).Pie(pieData, pieOptions);
+
         });
         var file;
 
@@ -141,23 +192,8 @@ function testFunction() {
 
             console.log(file.webkitRelativePath);
         }
-        // line chart data
-        var buyerData = {
-            labels : ["January","February","March","April","May","June"],
-            datasets : [
-                {
-                    fillColor : "rgba(172,194,132,0.4)",
-                    strokeColor : "#ACC26D",
-                    pointColor : "#fff",
-                    pointStrokeColor : "#9DB86D",
-                    data : [203,156,99,251,305,247]
-                }
-            ]
-        }
-        // get line chart canvas
-        var buyers = document.getElementById('financialDetails').getContext('2d');
-        // draw line chart
-        new Chart(buyers).Line(buyerData);
+
+
     });
 }
 
