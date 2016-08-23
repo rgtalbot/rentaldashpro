@@ -1,14 +1,14 @@
 // =========================================================
 // Initialize Firebase
 // =========================================================
-var config = {
-    apiKey: "AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE",
-    authDomain: "rental-dash-pro.firebaseapp.com",
-    databaseURL: "https://rental-dash-pro.firebaseio.com",
-    storageBucket: "rental-dash-pro.appspot.com",
-};
-
-firebase.initializeApp(config);
+// var config = {
+//     apiKey: "AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE",
+//     authDomain: "rental-dash-pro.firebaseapp.com",
+//     databaseURL: "https://rental-dash-pro.firebaseio.com",
+//     storageBucket: "rental-dash-pro.appspot.com",
+// };
+//
+// firebase.initializeApp(config);
 
 var database = firebase.database();
 var authData = firebase.auth();
@@ -16,7 +16,7 @@ var authData = firebase.auth();
 
 var count = 0,
     uniqueID,
-    ownerKey = "4XbtNvOf57REXofdwETCfpiOBKI2";
+    ownerKey = firebase.auth().currentUser.uid;
 
 // =========================================================
 // CODE FROM OLD details.js FILE
@@ -252,7 +252,3 @@ function validateForm(property) {
 // ==============================
 // chart for main dashboard
 // ==============================
-
-
-
-

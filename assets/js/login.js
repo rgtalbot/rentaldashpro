@@ -1,12 +1,12 @@
 // =========================================================
 // Initialize Firebase
 // =========================================================
-var config = {
-    apiKey: "AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE",
-    authDomain: "rental-dash-pro.firebaseapp.com",
-};
-
-firebase.initializeApp(config);
+// var config = {
+//     apiKey: "AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE",
+//     authDomain: "rental-dash-pro.firebaseapp.com",
+// };
+//
+// firebase.initializeApp(config);
 
 // =========================================================
 // Global regex validation variable
