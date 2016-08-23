@@ -63,6 +63,12 @@ function testFunction() {
                 var hoa = $('#hoa-input').val().trim();
                 var maint = $('#maint-input').val().trim();
 
+                rent = parseFloat(rent).toFixed(2);
+                mortgage = parseFloat(mortgage).toFixed(2);
+                hoa = parseFloat(hoa).toFixed(2);
+                maint = parseFloat(maint).toFixed(2);
+
+
                 database.ref('ownerProfiles/'+ownerKey+'/properties/'+testID+'/financials').set({
                     rent: rent,
                     mortgage: mortgage,
@@ -110,10 +116,14 @@ function testFunction() {
             $('#hoa-input').attr('value', hoa);
             $('#maint-input').attr('value', maint);
 
-            rent = parseInt(rent);
-            mortgage = parseInt(mortgage);
-            hoa = parseInt(hoa);
-            maint = parseInt(maint);
+            rent = parseFloat(rent).toFixed(2);
+            console.log(rent);
+            mortgage = parseFloat(mortgage).toFixed(2);
+            console.log(mortgage);
+            hoa = parseFloat(hoa).toFixed(2);
+            console.log(hoa);
+            maint = parseFloat(maint).toFixed(2);
+            console.log(maint);
 
             
             var mortPie = (mortgage/rent)*100;
@@ -126,7 +136,7 @@ function testFunction() {
             console.log(hoa);
             console.log(maint);
             console.log(mortgage);
-            var extra = (maint+hoa+mortgage);
+            var extra = (parseFloat(maint)+parseFloat(hoa)+parseFloat(mortgage)).toFixed(2);
             console.log(extra);
             var extraR = rent-extra;
             var extraT = (extraR/rent)*100;
