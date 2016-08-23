@@ -17,20 +17,7 @@ var authData = firebase.auth();
 var count = 0,
     uniqueID,
     ownerKey = firebase.auth().currentUser.uid;
-
-// =========================================================
-// CODE FROM OLD details.js FILE
-// =========================================================
-
-
-
-
-
-// =========================================================
-// CODE FROM OLD overview.js FILE
-// =========================================================
-
-
+    // ownerKey ="4XbtNvOf57REXofdwETCfpiOBKI2";
 
 
 function buildCard() {
@@ -62,6 +49,36 @@ function testFunction() {
     console.log(testID);
     $('#page-content-wrapper').load('assets/ajax/property_details_template.html', function() {
 
+        $("#editSaveBtn").on('click', function () {
+            if ($('#editSaveBtn').text() == "Save") {
+                $('#editSaveBtn').text('Edit');
+                $('.test').attr('disabled', true);
+                $('#rent-input').attr('value', $('#rent-input').val());
+                $('#mort-input').attr('value', $('#mort-input').val());
+                $('#hoa-input').attr('value', $('#hoa-input').val());
+                $('#maint-input').attr('value', $('#maint-input').val());
+
+                var rent = $('#rent-input').val().trim();
+                var mortgage = $('#mort-input').val().trim();
+                var hoa = $('#hoa-input').val().trim();
+                var maint = $('#maint-input').val().trim();
+
+                database.ref('ownerProfiles/'+ownerKey+'/properties/'+testID+'/financials').set({
+                    rent: rent,
+                    mortgage: mortgage,
+                    hoa: hoa,
+                    maint: maint,
+                });
+
+            } else if ($('#editSaveBtn').text() == "Edit") {
+                $('#editSaveBtn').text('Save');
+                $('.test').removeAttr('disabled');
+            }
+
+        });
+
+
+
         database.ref('ownerProfiles/'+ownerKey+'/properties/' + testID).on("value", function (childSnapshot, key) {
 
             var propName = childSnapshot.val().name;
@@ -82,6 +99,16 @@ function testFunction() {
             $('#nameDetails').html(propName);
             $('#detailImage').attr('src', propImg);
             $('#addressDetail').html(propAddress);
+
+            var rent = childSnapshot.val().financials.rent;
+            var mortgage = childSnapshot.val().financials.mortgage;
+            var hoa = childSnapshot.val().financials.hoa;
+            var maint = childSnapshot.val().financials.maint;
+
+            $('#rent-input').attr('value', rent);
+            $('#mort-input').attr('value', mortgage);
+            $('#hoa-input').attr('value', hoa);
+            $('#maint-input').attr('value', maint);
 
         });
         var file;
@@ -250,5 +277,5 @@ function validateForm(property) {
 }
 
 // ==============================
-// chart for main dashboard
+// details financials
 // ==============================

@@ -11,14 +11,16 @@
                     <div class="imgDetails">
                         <img src="http://placehold.it/200x200" id="detailImage">
                         <p><span id="addressDetail"></span></p>
-                        <span><a href="#picModal" data-toggle="modal"><img id="plus" src="assets/img/plus.png"></a></span>
+                        <span><a href="#picModal" data-toggle="modal"><img id="plus"
+                                                                           src="assets/img/plus.png"></a></span>
                     </div>
                     <!--modal structure-->
                     <div class="modal fade" id="picModal" tabindex="-1" role="dialog" aria-labelledby="mypicModal">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span></button>
+                                    <button type="button" class="close" data-dismiss="modal"><span
+                                            aria-hidden="true"></span></button>
                                     <h4 class="modal-title" id="picModalTitle">Upload an Image</h4>
                                     <div class="modal-body">
                                         <input id="previewFilePath" type="file" onchange="filePreview()"><br>
@@ -68,9 +70,46 @@
             <div class="panel">
                 <div class="panel-heading">Financials</div>
                 <div class="panel-body">
-                    <canvas id="financialDetails" width="600" height="200"></canvas>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <canvas id="financialDetails" width="350" height="200"></canvas>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="card">
+                                <div class="card-content row">
+
+                                    <div class="card-title col s8">Rent</div>
+                                    <div class="col s4">
+                                        <input disabled class="right-align test" type="text" id="rent-input"
+                                               value="$1,500.00">
+                                    </div>
+
+                                    <div class="card-title col s8">Mortgage</div>
+                                    <div class="col s4">
+                                        <input disabled class="right-align test" type="text" id="mort-input"
+                                               value="$1,500.00">
+                                    </div>
+                                    <div class="card-title col s8">HOA Fees</div>
+                                    <div class="col s4">
+                                        <input disabled class="right-align test" type="text" id="hoa-input"
+                                               value="$1,500.00">
+                                    </div>
+                                    <div class="card-title col s8">Maintenence Expenses</div>
+                                    <div class="col s4">
+                                        <input disabled class="right-align test" type="text" id="maint-input"
+                                               value="$1,500.00">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="saveEditButton">
+                                <a class="waves-effect waves-light btn" id="editSaveBtn">Edit</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
             <div class="panel">
                 <div class="panel-heading">Maintenance Reminders</div>
                 <div class="panel-body">

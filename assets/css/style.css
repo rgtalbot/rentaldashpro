@@ -134,6 +134,11 @@
 
 }
 
+.card-title {
+    line-height: 20px;
+    font-size: 18px;
+}
+
 .rentaldash {
     width: 500px;
     text-align: center;
