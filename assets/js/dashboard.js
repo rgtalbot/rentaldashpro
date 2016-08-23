@@ -13,57 +13,31 @@ firebase.initializeApp(config);
 var database = firebase.database();
 var authData = firebase.auth();
 
-// =========================================================
-// Initialize dashboard for current user.
-// =========================================================
-$(document).ready(function() {
-
-
-});
-
-// =========================================================
-// CODE FROM OLD details.js FILE
-// =========================================================
-
-var uniqueID = "-KPdOsp8UGW7IzhyW2cE";
-
-database.ref('properties/' + uniqueID).on("value", function (childSnapshot, key) {
-    var propName = childSnapshot.val().name;
-    var propAddress = childSnapshot.val().address;
-    var propBed = childSnapshot.val().bedrooms;
-    var propBath = childSnapshot.val().bathrooms;
-    var propSqFt = childSnapshot.val().sqfeet;
-    var propStatus = childSnapshot.val().status;
-    var propImg = childSnapshot.val().image;
-    var propDescription = childSnapshot.val().description;
-    var propType = childSnapshot.val().type;
-
-    $('#bedroomDetail').html(propBed);
-    $('#bathroomDetail').html(propBath);
-    $('#sqfeetDetail').html(propSqFt);
-    $('#occupancyDetail').html(propStatus);
-    $('#descriptionDetails').html(propDescription);
-    $('#nameDetails').html(propName);
-    $('#detailImage').attr('src', propImg);
-    $('#addressDetail').html(propAddress);
-});
-
-$('#plus').on('click', function() { });
-
-// =========================================================
-// CODE FROM OLD overview.js FILE
-// =========================================================
 
 var count = 0,
     uniqueID,
     ownerKey = "4XbtNvOf57REXofdwETCfpiOBKI2";
 
+// =========================================================
+// CODE FROM OLD details.js FILE
+// =========================================================
+
+
+
+
+
+// =========================================================
+// CODE FROM OLD overview.js FILE
+// =========================================================
+
+
+
 
 function buildCard() {
     database.ref('ownerProfiles/' + ownerKey + '/properties/').once('value').then(function (snapshot) {
-        console.log(snapshot.val());
+        $('.ownerList').empty();
         $.each(snapshot.val(), function (index, value) {
-            var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3");
+            var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3").attr('data-id', value.refID).on('click', testFunction);
             var houseDiv = $('<div>').addClass("rdp-photo-card-property");
             var houseImg = $('<img>').addClass("rdp-photo-card-img")
                 .attr("src", value.image);
@@ -83,6 +57,86 @@ function buildCard() {
     });
 }
 
+function testFunction() {
+    var testID = $(this).data('id');
+    console.log(testID);
+    $('#page-content-wrapper').load('assets/ajax/property_details_template.html', function() {
+
+        database.ref('ownerProfiles/'+ownerKey+'/properties/' + testID).on("value", function (childSnapshot, key) {
+
+            var propName = childSnapshot.val().name;
+            var propAddress = childSnapshot.val().address;
+            var propBed = childSnapshot.val().bedrooms;
+            var propBath = childSnapshot.val().bathrooms;
+            var propSqFt = childSnapshot.val().sqfeet;
+            var propStatus = childSnapshot.val().status;
+            var propImg = childSnapshot.val().image;
+            var propDescription = childSnapshot.val().description;
+            var propType = childSnapshot.val().type;
+
+            $('#bedroomDetail').html(propBed);
+            $('#bathroomDetail').html(propBath);
+            $('#sqfeetDetail').html(propSqFt);
+            $('#occupancyDetail').html(propStatus);
+            $('#descriptionDetails').html(propDescription);
+            $('#nameDetails').html(propName);
+            $('#detailImage').attr('src', propImg);
+            $('#addressDetail').html(propAddress);
+
+        });
+        var file;
+
+        $('.modalUpload').on('click', function () {
+            console.log($('#previewFile'));
+            console.log($('#previewFilePath'));
+
+            var ref = firebase.storage().ref();
+            var upload = ref.child(file.name);
+            ref.put(upload).then(function (snapshot) {
+                console.log('Uploaded a blob or file!');
+            });
+
+        });
+
+
+        function filePreview() {
+            var preview = document.querySelector('#previewFile');
+            file = document.querySelector('input[type=file]').files[0];
+            var reader = new FileReader();
+
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+
+            console.log(file.webkitRelativePath);
+        }
+        // line chart data
+        var buyerData = {
+            labels : ["January","February","March","April","May","June"],
+            datasets : [
+                {
+                    fillColor : "rgba(172,194,132,0.4)",
+                    strokeColor : "#ACC26D",
+                    pointColor : "#fff",
+                    pointStrokeColor : "#9DB86D",
+                    data : [203,156,99,251,305,247]
+                }
+            ]
+        }
+        // get line chart canvas
+        var buyers = document.getElementById('financialDetails').getContext('2d');
+        // draw line chart
+        new Chart(buyers).Line(buyerData);
+    });
+}
+
+
+
+
 buildCard();
 
 
@@ -98,11 +152,13 @@ $('.modalAddBtn').click(function () {
         description: $('#prop_description').val().trim(),
         type: $('input:radio[name=propertyOptions]:checked').val(),
         image: 'https://firebasestorage.googleapis.com/v0/b/rental-dash-pro.appspot.com/o/starter.png?alt=media&token=ca604cf1-6b2a-4520-8ec4-fae63a6d50c1',
-        status: 'vacant'
+        status: 'vacant',
+        refID: 0
     };
     console.log(property);
     validateForm(property);
     uniqueID = database.ref('ownerProfiles/' + ownerKey + '/properties/').push(property).key;
+    database.ref('ownerProfiles/' + ownerKey + '/properties/' +uniqueID + '/refID/').set(uniqueID);
     console.log(uniqueID);
 
     console.log("count is before if : " + count);
@@ -192,3 +248,11 @@ function validateForm(property) {
     }
 
 }
+
+// ==============================
+// chart for main dashboard
+// ==============================
+
+
+
+

@@ -1,0 +1,107 @@
+<html>
+<div class="container-fluid">
+    <div class="page-header">
+        <h2>Property Details</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="imgDetails">
+                        <img src="http://placehold.it/200x200" id="detailImage">
+                        <p><span id="addressDetail"></span></p>
+                        <span><a href="#picModal" data-toggle="modal"><img id="plus" src="assets/img/plus.png"></a></span>
+                    </div>
+                    <!--modal structure-->
+                    <div class="modal fade" id="picModal" tabindex="-1" role="dialog" aria-labelledby="mypicModal">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span></button>
+                                    <h4 class="modal-title" id="picModalTitle">Upload an Image</h4>
+                                    <div class="modal-body">
+                                        <input id="previewFilePath" type="file" onchange="filePreview()"><br>
+                                        <img src="" height="200" id="previewFile" alt="Image preview ... ">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn modalUpload">Upload Image</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end modal-->
+                    <div>
+                        <h4 id="nameDetails">Property Name</h4>
+                        <div class="row details">
+                            <div class="col-xs-2">
+                                <p># of Bedrooms</p>
+                                <p id="bedroomDetail"></p>
+                            </div>
+                            <div class="col-xs-2">
+                                <p># of Bathrooms</p>
+                                <p id="bathroomDetail"></p>
+                            </div>
+                            <div class="col-xs-2">
+                                <p>Square footage</p>
+                                <p id="sqfeetDetail"></p>
+                            </div>
+                            <div class="col-xs-2">
+                                <p>Occupancy Status</p>
+                                <p id="occupancyDetail"></p>
+                            </div>
+                        </div>
+                        <div class="row details">
+                            <div class="col-xs-8">
+                                <p>Property Description</p>
+                                <p id="descriptionDetails"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="panel">
+                <div class="panel-heading">Financials</div>
+                <div class="panel-body">
+                    <canvas id="financialDetails" width="600" height="200"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="panel-heading">Maintenance Reminders</div>
+                <div class="panel-body">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="panel">
+                <div class="panel-heading">Owner Documents</div>
+                <div class="panel-body">
+                    <p>Netus a quam tincidunt enim fringilla duis a ullamcorper eleifend lectus ac suspendisse
+                        suspendisse
+                        diam
+                        urna nascetur imperdiet a nam a tempus eu a pharetra lorem. Fringilla vestibulum cum mus
+                        risus
+                        adipiscing velit hendrerit a accumsan scelerisque quisque ullamcorper interdum ultrices
+                        tempor
+                        tellus
+                        proin dictum cras ultricies inceptos duis platea adipiscing a sem potenti massa. Aliquet
+                        condimentum
+                        duis maecenas adipiscing condimentum nisi arcu suspendisse elementum urna commodo
+                        ullamcorper
+                        maecenas
+                        quam habitant eu pharetra fermentum scelerisque a pharetra condimentum orci.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</html>

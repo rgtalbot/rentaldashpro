@@ -70,7 +70,7 @@
                 </a>
             </li>
             <li class="activeSide">
-                <a href="overview.html"><span class="glyphicon glyphicon-dashboard"></span> Overview <span
+                <a href="dashboard.html"><span class="glyphicon glyphicon-dashboard"></span> Overview <span
                         class="glyphicon glyphicon-menu-right"></span></a>
             </li>
             <li>
@@ -82,10 +82,78 @@
             <li>
                 <a href="login.html"><span class="glyphicon glyphicon-calendar"></span> Owner Reminders</a>
             </li>
+            <li>
+                <a href="#formModal" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> Add New Property</a>
+            </li>
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
+    <!--modal structure -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="formModalTitle">Add New Property</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="prop_name">Property Name</label>
+                            <input type="text" class="form-control" id="prop_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="prop_address">Property Address</label>
+                            <input type="text" class="form-control" id="prop_address">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="propertyOptions" id="condo"
+                                       value="Condo"> Condo
+                            </label>
+                            <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="propertyOptions"
+                                       id="townHouse"
+                                       value="Townhouse"> Townhouse
+                            </label>
+                            <label class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="propertyOptions" id="house"
+                                       value="House"> House
+                            </label>
+                        </div>
+                        <div class="form-group" name="type">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label for="prop_bed"># of Bedrooms</label>
+                                    <input type="number" class="form-control" id="prop_bed">
+                                </div>
+                                <div class="col-xs-4">
+                                    <label for="prop_bath"># of Bathrooms</label>
+                                    <input type="number" class="form-control" id="prop_bath">
+                                </div>
+                                <div class="col-xs-4">
+                                    <label for="prop_sqft">Square Feet</label>
+                                    <input type="number" class="form-control" id="prop_sqft" \>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="prop_description">Property Description</label>
+                            <textarea id="prop_description" class="form-control" rows="3"></textarea>
+                        </div>
+                    </form>
 
+                    <div class="modal-footer">
+                        <button type="button" class="btn modalAddBtn">ADD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--end modal-->
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
@@ -106,36 +174,41 @@
         crossorigin="anonymous"></script>
 <!-- Firebase JS -->
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-<!-- Google Map Autocomplete JS -->
-<script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE&libraries=places&callback=initAutocomplete">
+
 </script>
 <!-- Chart JS -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
-<!-- Dashboard page JS -->
 <script src="assets/js/dashboard.js"></script>
-<!-- =================================================== -->
 <script>
-    // bar chart data
-    var barData = {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        datasets: [
-            {
-                fillColor: "#408a82",
-                data: [1701, 1689, 1712, 1683, 1704, 1712, 1699, 1700, 1632, 1754, 1732, 1721]
-            },
-            {
-                fillColor: "#d6edec",
-                data: [1584, 1563, 1543, 1592, 1547, 1532, 1591, 1583, 1567, 1599, 1601, 1594]
+    function renderOverview() {
+        $('#page-content-wrapper').load('assets/ajax/dashboard_overview_template.html', function () {
+// bar chart data
+            var barData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                datasets: [
+                    {
+                        fillColor: "#408a82",
+                        data: [1701, 1689, 1712, 1683, 1704, 1712, 1699, 1700, 1632, 1754, 1732, 1721]
+                    },
+                    {
+                        fillColor: "#d6edec",
+                        data: [1584, 1563, 1543, 1592, 1547, 1532, 1591, 1583, 1567, 1599, 1601, 1594]
+                    }
+                ]
             }
-        ]
+// get bar chart canvas
+            var income = document.getElementById("income").getContext("2d");
+// draw bar chart
+            new Chart(income).Bar(barData);
+        });
     }
-    // get bar chart canvas
-    var income = document.getElementById("income").getContext("2d");
-    // draw bar chart
-    new Chart(income).Bar(barData);
+
+    renderOverview();
 </script>
 <script>
+    // ==============================
+    // google maps api
+    // ==============================
     // This example displays an address form, using the autocomplete feature
     // of the Google Places API to help users fill in the information.
 
@@ -159,9 +232,9 @@
         console.log(autocomplete);
 
     }
-
-
 </script>
-
+<!-- Google Map Autocomplete JS -->
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE&libraries=places&callback=initAutocomplete">
 </body>
 </html>

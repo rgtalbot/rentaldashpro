@@ -12,87 +12,8 @@
         </ul>
     </div>
 
-    <div class="row ownerList">
-        <div class="col-xs-6 col-md-4 col-lg-3">
-            <a href="#formModal" data-toggle="modal">
-                <div class="rdp-photo-card-property">
-                    <img class="rdp-photo-card-img" src="assets/img/add.png">
-                    <div class="caption">
-                        <p class="text-center">Select to add a new property</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+    <div class="row ownerList"></div>
 
-    </div>
-
-
-    <!--modal structure -->
-    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="formModalTitle">Add New Property</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="prop_name">Property Name</label>
-                            <input type="text" class="form-control" id="prop_name">
-                        </div>
-                        <div class="form-group">
-                            <label for="prop_address">Property Address</label>
-                            <input type="text" class="form-control" id="prop_address">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="propertyOptions" id="condo"
-                                       value="Condo"> Condo
-                            </label>
-                            <label class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="propertyOptions"
-                                       id="townHouse"
-                                       value="Townhouse"> Townhouse
-                            </label>
-                            <label class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="propertyOptions" id="house"
-                                       value="House"> House
-                            </label>
-                        </div>
-                        <div class="form-group" name="type">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <label for="prop_bed"># of Bedrooms</label>
-                                    <input type="number" class="form-control" id="prop_bed">
-                                </div>
-                                <div class="col-xs-4">
-                                    <label for="prop_bath"># of Bathrooms</label>
-                                    <input type="number" class="form-control" id="prop_bath">
-                                </div>
-                                <div class="col-xs-4">
-                                    <label for="prop_sqft">Square Feet</label>
-                                    <input type="number" class="form-control" id="prop_sqft" \>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="prop_description">Property Description</label>
-                            <textarea id="prop_description" class="form-control" rows="3"></textarea>
-                        </div>
-                    </form>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn modalAddBtn">ADD</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--end modal-->
 
     <div class="page-header">
         <h2>Financial Summary</h2>
@@ -134,4 +55,6 @@
     </div>
 
 </div>
+<!-- Dashboard page JS -->
+<script src="assets/js/dashboard.js"></script>
 </html>
