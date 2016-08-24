@@ -48,12 +48,22 @@
 }
 
 
-
 #plus {
     position: absolute;
     top: 5px;
     right: 5px;
     height: 15px;
+}
+
+#editPropDetails {
+    top: 5px;
+    right: 20px;
+    height: 15px;
+    position: absolute;
+}
+
+.propDetailsInputs {
+    width: 100%
 }
 
 .nav li a:hover {
@@ -66,6 +76,23 @@
     float: left;
     margin-right:40px;
     height: 200px;
+}
+
+
+.saveEdit {
+    margin-top: 5px;
+    background-color: #408A82;
+    color: white;
+}
+
+.input-group-addon {
+    background-color: #408A82;
+    color: white;
+    border-color: #408a82;
+}
+
+.financialDetailsInput {
+    border-color: #408A82;
 }
 
 .imgDetails {
