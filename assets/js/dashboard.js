@@ -34,17 +34,17 @@ function renderOverview() {
 // Function that pulls firebase values to build bar graph on the main overview page
 function mainFinance() {
 
-    database.ref('ownerProfiles/'+ownerKey+'/financials/').once('value').then(function(snapshot) {
+    database.ref('ownerProfiles/'+ownerKey+'/properties/').once('value').then(function(snapshot) {
         var nameData = [];
         var rentData = [];
         var expenseData = [];
         $.each(snapshot.val(), function(index, value) {
             if (value.status !== 'archived')
             {
-                var rent = value.rent;
-                var mortgage = value.mortgage;
-                var hoa = value.hoa;
-                var maint = value.maint;
+                var rent = value.financials.rent;
+                var mortgage = value.financials.mortgage;
+                var hoa = value.financials.hoa;
+                var maint = value.financials.maint;
                 var name = value.name;
 
                 rent = parseFloat(rent).toFixed(2);
@@ -218,18 +218,11 @@ function testFunction() {
                 hoa = parseFloat(hoa).toFixed(2);
                 maint = parseFloat(maint).toFixed(2);
 
-                database.ref('ownerProfiles/' + ownerKey + '/financials/' + testID).set({
-                    rent: rent,
-                    mortgage: mortgage,
-                    hoa: hoa,
-                    maint: maint
-                });
-
                 database.ref('ownerProfiles/' + ownerKey + '/properties/' + testID + '/financials').set({
                     rent: rent,
                     mortgage: mortgage,
                     hoa: hoa,
-                    maint: maint,
+                    maint: maint
                 });
 
             } else if ($('#editSaveBtn').text() == "Edit") {
@@ -325,34 +318,6 @@ function testFunction() {
 
     });
 }
-
-
-
-// $('.modalUpload').on('click', function(e) {
-//
-//     var file = e.target.files[0];
-//
-//     var storageRef = firebase.storage().ref('photos/' + file.name);
-//     storage.Ref.put(file);
-//
-// });
-//
-//
-// function filePreview() {
-//     var preview = document.querySelector('#previewFile');
-//     file = document.querySelector('input[type=file]').files[0];
-//     var reader = new FileReader();
-//
-//     reader.addEventListener("load", function () {
-//         preview.src = reader.result;
-//     }, false);
-//
-//     if (file) {
-//         reader.readAsDataURL(file);
-//     }
-//
-//     console.log(file.webkitRelativePath);
-// }
 
 $('.modalAddBtn').click(function () {
 
