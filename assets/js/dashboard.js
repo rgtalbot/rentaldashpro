@@ -200,7 +200,7 @@ function testFunction() {
         $("#editSaveBtn").on('click', function () {
             if ($(this).text() == "Save") {
                 $(this).text('Edit');
-                $('.test').attr('disabled', true);
+                $('.financialDetailsInput').attr('disabled', true);
                 $('#rent-input').attr('value', $('#rent-input').val());
                 $('#mort-input').attr('value', $('#mort-input').val());
                 $('#hoa-input').attr('value', $('#hoa-input').val());
@@ -232,7 +232,7 @@ function testFunction() {
 
             } else if ($('#editSaveBtn').text() == "Edit") {
                 $('#editSaveBtn').text('Save');
-                $('.test').removeAttr('disabled');
+                $('.financialDetailsInput').removeAttr('disabled');
             }
 
         });
