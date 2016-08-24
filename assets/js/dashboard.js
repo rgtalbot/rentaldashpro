@@ -17,10 +17,90 @@ var authData = firebase.auth();
 var count = 0,
     uniqueID,
     // ownerKey = firebase.auth().currentUser.uid;
-    ownerKey ="4XbtNvOf57REXofdwETCfpiOBKI2";
+    ownerKey = "4XbtNvOf57REXofdwETCfpiOBKI2";
 
+$('#overViewButton').on('click', renderOverview);
+
+
+function renderOverview() {
+    $('#page-content-wrapper').load('assets/ajax/dashboard_overview_template.html', function () {
+        mainFinance();
+    });
+}
+
+
+
+function mainFinance() {
+
+    database.ref('ownerProfiles/'+ownerKey+'/financials/').once('value').then(function(snapshot) {
+        var nameData = [];
+        var rentData = [];
+        var expenseData = [];
+        $.each(snapshot.val(), function(index, value) {
+            var rent = value.rent;
+            var mortgage = value.mortgage;
+            var hoa = value.hoa;
+            var maint = value.maint;
+            var name = value.name;
+
+            rent = parseFloat(rent).toFixed(2);
+            mortgage = parseFloat(mortgage).toFixed(2);
+            hoa = parseFloat(hoa).toFixed(2);
+            maint = parseFloat(maint).toFixed(2);
+
+            var rentTotal = 0,
+                expenseTotal = 0;
+
+            rentTotal = (rentTotal + (parseFloat(rent))).toFixed(2);
+            expenseTotal = (parseFloat(expenseTotal) + (parseFloat(mortgage))).toFixed(2);
+            expenseTotal = (parseFloat(expenseTotal) + (parseFloat(hoa))).toFixed(2);
+            expenseTotal = (parseFloat(expenseTotal) + (parseFloat(maint))).toFixed(2);
+            expenseTotal = Number(expenseTotal);
+            rentTotal = Number(rentTotal);
+
+            rentData.push(rentTotal);
+            expenseData.push(expenseTotal);
+            nameData.push(name);
+        });
+        console.log('rentData', rentData);
+        console.log('expenseData', expenseData);
+        console.log('nameData', nameData);
+        // bar chart data
+        var barData = {
+            labels: nameData,
+            datasets: [
+                {
+                    backgroundColor: "#408a82",
+                    data: rentData,
+                    label: 'INCOME'
+                },
+                {
+                    backgroundColor: "#d6edec",
+                    data: expenseData,
+                    label: 'EXPENSES'
+                }
+            ]
+        };
+        // get bar chart canvas
+        var ctx = document.getElementById("income").getContext("2d");
+        // draw bar chart
+        var chartInstance= new Chart(ctx, {
+            type: 'bar',
+            data: barData,
+            options: {
+                hover: {
+                    mode: 'label'
+                },
+                legend: {
+                }
+            }
+        });
+        // new Chart(ctx).Bar(barData);
+    });
+}
 
 function buildCard() {
+
     database.ref('ownerProfiles/' + ownerKey + '/properties/').once('value').then(function (snapshot) {
         $('.ownerList').empty();
         $.each(snapshot.val(), function (index, value) {
@@ -47,11 +127,11 @@ function buildCard() {
 function testFunction() {
     var testID = $(this).data('id');
     console.log(testID);
-    $('#page-content-wrapper').load('assets/ajax/property_details_template.html', function() {
+    $('#page-content-wrapper').load('assets/ajax/property_details_template.html', function () {
 
         $("#editSaveBtn").on('click', function () {
-            if ($('#editSaveBtn').text() == "Save") {
-                $('#editSaveBtn').text('Edit');
+            if ($(this).text() == "Save") {
+                $(this).text('Edit');
                 $('.test').attr('disabled', true);
                 $('#rent-input').attr('value', $('#rent-input').val());
                 $('#mort-input').attr('value', $('#mort-input').val());
@@ -68,8 +148,14 @@ function testFunction() {
                 hoa = parseFloat(hoa).toFixed(2);
                 maint = parseFloat(maint).toFixed(2);
 
+                database.ref('ownerProfiles/' + ownerKey + '/financials/' + testID).set({
+                    rent: rent,
+                    mortgage: mortgage,
+                    hoa: hoa,
+                    maint: maint
+                });
 
-                database.ref('ownerProfiles/'+ownerKey+'/properties/'+testID+'/financials').set({
+                database.ref('ownerProfiles/' + ownerKey + '/properties/' + testID + '/financials').set({
                     rent: rent,
                     mortgage: mortgage,
                     hoa: hoa,
@@ -84,8 +170,7 @@ function testFunction() {
         });
 
 
-
-        database.ref('ownerProfiles/'+ownerKey+'/properties/' + testID).on("value", function (childSnapshot, key) {
+        database.ref('ownerProfiles/' + ownerKey + '/properties/' + testID).on("value", function (childSnapshot, key) {
 
             var propName = childSnapshot.val().name;
             var propAddress = childSnapshot.val().address;
@@ -96,6 +181,8 @@ function testFunction() {
             var propImg = childSnapshot.val().image;
             var propDescription = childSnapshot.val().description;
             var propType = childSnapshot.val().type;
+
+            database.ref('ownerProfiles/' + ownerKey + '/financials/' + testID + '/name/').set(propName);
 
             $('#bedroomDetail').html(propBed);
             $('#bathroomDetail').html(propBath);
@@ -116,60 +203,51 @@ function testFunction() {
             $('#hoa-input').attr('value', hoa);
             $('#maint-input').attr('value', maint);
 
-            rent = parseFloat(rent).toFixed(2);
-            console.log(rent);
-            mortgage = parseFloat(mortgage).toFixed(2);
-            console.log(mortgage);
-            hoa = parseFloat(hoa).toFixed(2);
-            console.log(hoa);
-            maint = parseFloat(maint).toFixed(2);
-            console.log(maint);
+            rent = Number(parseFloat(rent).toFixed(2));
+            mortgage = Number(parseFloat(mortgage).toFixed(2));
+            hoa = Number(parseFloat(hoa).toFixed(2));
+            maint = Number(parseFloat(maint).toFixed(2));
 
-            
-            var mortPie = (mortgage/rent)*100;
-            console.log(mortPie);
-            var hoaPie = (hoa/rent)*100;
-            console.log(hoaPie);
-            var maintPie = (maint/rent)*100;
-            console.log(maintPie);
-            console.log(rent);
-            console.log(hoa);
-            console.log(maint);
-            console.log(mortgage);
-            var extra = (parseFloat(maint)+parseFloat(hoa)+parseFloat(mortgage)).toFixed(2);
-            console.log(extra);
-            var extraR = rent-extra;
-            var extraT = (extraR/rent)*100;
-            console.log(extraT);
+            var profit = Number(parseFloat(rent - (maint + hoa + mortgage)).toFixed(2));
+            var pieDataChart = [mortgage, hoa, maint, profit];
 
             // pie chart data
-            var pieData = [
-                {
-                    value: mortPie,
-                    color:"red"
-                },
-                {
-                    value : hoaPie,
-                    color : "blue"
-                },
-                {
-                    value : maintPie,
-                    color : "yellow"
-                },
-                {
-                    value : extraT,
-                    color : "green"
-                }
-            ];
+            var pieData = {
+
+                labels: [
+                    "MORTGAGE",
+                    "HOA FEES",
+                    "MAINTENANCE",
+                    "PROFIT"
+                ],
+                datasets: [
+                    {
+                        data: pieDataChart,
+                        backgroundColor: [
+                            "#1b4556",
+                            "#2b6970",
+                            "#408a82",
+                            "#d6edec"
+                        ]
+                    }]
+            };
             // pie chart options
             var pieOptions = {
-                segmentShowStroke : false,
-                animateScale : true
+                legend: {
+                    display: false
+                },
+                hover: {
+                    mode: 'label'
+                }
             };
             // get pie chart canvas
-            var countries= document.getElementById("financialDetails").getContext("2d");
+            var ctx = $('#financialDetails');
             // draw pie chart
-            new Chart(countries).Pie(pieData, pieOptions);
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: pieData,
+                options: pieOptions
+            })
 
         });
         var file;
@@ -208,8 +286,6 @@ function testFunction() {
 }
 
 
-
-
 buildCard();
 
 
@@ -231,7 +307,7 @@ $('.modalAddBtn').click(function () {
     console.log(property);
     validateForm(property);
     uniqueID = database.ref('ownerProfiles/' + ownerKey + '/properties/').push(property).key;
-    database.ref('ownerProfiles/' + ownerKey + '/properties/' +uniqueID + '/refID/').set(uniqueID);
+    database.ref('ownerProfiles/' + ownerKey + '/properties/' + uniqueID + '/refID/').set(uniqueID);
     console.log(uniqueID);
 
     console.log("count is before if : " + count);
