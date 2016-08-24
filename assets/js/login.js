@@ -1,14 +1,4 @@
 // =========================================================
-// Initialize Firebase
-// =========================================================
-// var config = {
-//     apiKey: "AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE",
-//     authDomain: "rental-dash-pro.firebaseapp.com",
-// };
-//
-// firebase.initializeApp(config);
-
-// =========================================================
 // Global regex validation variable
 // =========================================================
 var validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -31,6 +21,8 @@ function logInUser(email, password) {
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            ownerKey = user.uid;
+            console.log("OWNER KEY: ", ownerKey);
             window.location.assign('dashboard.html');
         }
         else {
@@ -60,6 +52,8 @@ function signUpUser(name, email, password) {
             user.updateProfile({
                 displayName: name
             }).then(function() {
+                ownerKey = user.uid;
+                console.log("OWNER KEY: ", ownerKey);
                 window.location.assign('dashboard.html');
             }, function(error) {
                 console.warn("Update profile error ", error.code, " with message ", error.message);

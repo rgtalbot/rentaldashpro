@@ -1,26 +1,18 @@
 // =========================================================
-// Initialize Firebase
-// =========================================================
-// var config = {
-//     apiKey: "AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE",
-//     authDomain: "rental-dash-pro.firebaseapp.com",
-//     databaseURL: "https://rental-dash-pro.firebaseio.com",
-//     storageBucket: "rental-dash-pro.appspot.com",
-// };
-//
-// firebase.initializeApp(config);
-
-// =========================================================
-// Check currrent authenticated user.
+// Check currently authenticated user.
 // =========================================================
 $(document).ready(function() {
+    firebase.auth().onAuthStateChanged( function(user) {
 
-    var user = firebase.auth().currentUser;
-    console.log("USER: ", user);
+    var $dashButton = $('<a>').addClass('dashboard-btn navbar-right')
+                              .attr('target', '_self');
 
-    if (user)
-        $('.dashboard-btn').attr('href', 'dashboard.html').text('MY DASHBOARD');
-    else
-        $('.dashboard-btn').attr('href', 'login.html').text('LOGIN');
+    if (user) {
+      $dashButton.attr('href', 'dashboard.html').text('MY DASHBOARD');
+    } else {
+      $dashButton.attr('href', 'login.html').text('LOGIN');
+    }
 
+    $('.navbar').find('.container').append($dashButton);
+    });
 });
