@@ -3,10 +3,8 @@ var count = 0,
 
 $('#overViewButton').on('click', renderOverview);
 
-
 function renderOverview() {
     $('#page-content-wrapper').load('assets/ajax/dashboard_overview_template.html', function () {
-        ownerKey = firebase.auth().currentUser.uid;
         buildCard();
         mainFinance();
     });
