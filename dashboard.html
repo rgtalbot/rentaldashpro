@@ -76,7 +76,7 @@
                 </a>
             </li>
             <li class="activeSide">
-                <a href="dashboard.html"><span class="glyphicon glyphicon-dashboard"></span> Overview <span
+                <a href="#" id="overViewButton"><span class="glyphicon glyphicon-dashboard"></span> Overview <span
                         class="glyphicon glyphicon-menu-right"></span></a>
             </li>
             <li>
@@ -182,35 +182,12 @@
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 
 <!-- Chart JS -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.min.js'></script>
 <!-- Global JS -->
 <script src="assets/js/init.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script>
-    function renderOverview() {
-        $('#page-content-wrapper').load('assets/ajax/dashboard_overview_template.html', function () {
-// bar chart data
-            var barData = {
-                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                datasets: [
-                    {
-                        fillColor: "#408a82",
-                        data: [1701, 1689, 1712, 1683, 1704, 1712, 1699, 1700, 1632, 1754, 1732, 1721]
-                    },
-                    {
-                        fillColor: "#d6edec",
-                        data: [1584, 1563, 1543, 1592, 1547, 1532, 1591, 1583, 1567, 1599, 1601, 1594]
-                    }
-                ]
-            };
-// get bar chart canvas
-            var income = document.getElementById("income").getContext("2d");
-// draw bar chart
-            new Chart(income).Bar(barData);
-        });
-    }
 
-    renderOverview();
 </script>
 <script>
     // ==============================
