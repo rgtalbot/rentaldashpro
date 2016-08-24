@@ -16,14 +16,16 @@ var authData = firebase.auth();
 
 var count = 0,
     uniqueID,
-    // ownerKey = firebase.auth().currentUser.uid;
-    ownerKey = "4XbtNvOf57REXofdwETCfpiOBKI2";
+    ownerKey;
+    // ownerKey = "4XbtNvOf57REXofdwETCfpiOBKI2";
 
 $('#overViewButton').on('click', renderOverview);
 
 
 function renderOverview() {
     $('#page-content-wrapper').load('assets/ajax/dashboard_overview_template.html', function () {
+        ownerKey = firebase.auth().currentUser.uid;
+        buildCard();
         mainFinance();
     });
 }
@@ -258,7 +260,7 @@ function testFunction() {
             $('#occupancyDetail').html(propStatus);
             $('#descriptionDetails').html(propDescription);
             $('#nameDetails').html(propName);
-            $('#detailImage').attr('src', propImg);
+            $('#detailImage').attr('src', propImg).attr('uid', testID);
             $('#addressDetail').html(propAddress);
 
             var rent = childSnapshot.val().financials.rent;
@@ -318,44 +320,39 @@ function testFunction() {
             })
 
         });
-        var file;
 
-        $('.modalUpload').on('click', function () {
-            console.log($('#previewFile'));
-            console.log($('#previewFilePath'));
-
-            var ref = firebase.storage().ref();
-            var upload = ref.child(file.name);
-            ref.put(upload).then(function (snapshot) {
-                console.log('Uploaded a blob or file!');
-            });
-
-        });
-
-
-        function filePreview() {
-            var preview = document.querySelector('#previewFile');
-            file = document.querySelector('input[type=file]').files[0];
-            var reader = new FileReader();
-
-            reader.addEventListener("load", function () {
-                preview.src = reader.result;
-            }, false);
-
-            if (file) {
-                reader.readAsDataURL(file);
-            }
-
-            console.log(file.webkitRelativePath);
-        }
 
 
     });
 }
 
 
-buildCard();
 
+// $('.modalUpload').on('click', function(e) {
+//
+//     var file = e.target.files[0];
+//
+//     var storageRef = firebase.storage().ref('photos/' + file.name);
+//     storage.Ref.put(file);
+//
+// });
+//
+//
+// function filePreview() {
+//     var preview = document.querySelector('#previewFile');
+//     file = document.querySelector('input[type=file]').files[0];
+//     var reader = new FileReader();
+//
+//     reader.addEventListener("load", function () {
+//         preview.src = reader.result;
+//     }, false);
+//
+//     if (file) {
+//         reader.readAsDataURL(file);
+//     }
+//
+//     console.log(file.webkitRelativePath);
+// }
 
 $('.modalAddBtn').click(function () {
 
@@ -465,7 +462,3 @@ function validateForm(property) {
     }
 
 }
-
-// ==============================
-// details financials
-// ==============================
