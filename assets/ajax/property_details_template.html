@@ -12,11 +12,7 @@
                             aria-hidden="true"></span></button>
                     <h4 class="modal-title" id="picModalTitle">Upload an Image</h4>
                     <div class="modal-body">
-                        <input id="previewFilePath" type="file" onchange="filePreview()"><br>
-                        <img src="" height="200" id="previewFile" alt="Image preview ... ">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn modalUpload">Upload Image</button>
+                        <input type="file" value="upload" id="filePath" />
                     </div>
                 </div>
             </div>
@@ -146,5 +142,27 @@
     </div>
 
 </div>
+<script>
+    var fileButton = document.getElementById('filePath');
+    var storageRef;
 
+    fileButton.addEventListener('change', function(e) {
+        var file = e.target.files[0];
+
+        storageRef = firebase.storage().ref('house_photos/' + firebase.auth().currentUser.uid + '/' + file.name);
+
+        var task = storageRef.put(file).then(function() {
+            storageRef.getDownloadURL().then(function(url) {
+                $('#picModal').modal('hide');
+                var propID = $('#detailImage').attr('uid');
+                console.log(propID);
+                database.ref('ownerProfiles/' + ownerKey + '/properties/' + propID + '/image/').set(url);
+            });
+        });
+
+    });
+
+
+
+</script>
 </html>
