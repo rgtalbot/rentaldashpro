@@ -165,3 +165,19 @@ $(document).ready(function() {
 
     })
 });
+
+
+$('.login').keypress(function (e) {
+    if (e.which == 13) {
+        var loginEmail = $('#login-email').val().trim();
+        var loginPass = $('#login-password').val().trim();
+
+        if ( validEmail.test(loginEmail) && loginPass !== '' ) {
+            logInUser(loginEmail, loginPass);
+        }
+        else {
+            // TODO: DISPLAY INVALID FORM FIELD MESSAGES
+            console.warn("Invalid form fields.");
+        }
+    }
+});

@@ -105,7 +105,7 @@ $('.tabList').on('click', function () {
         $('#allTab').removeClass('active activeTab');
         $('#occupiedTab').removeClass('active activeTab');
         $('#vacantTab').removeClass('active activeTab');
-        $build = 'archived';
+        $build = 'Archived';
         buildCardTabs();
     }
 });
