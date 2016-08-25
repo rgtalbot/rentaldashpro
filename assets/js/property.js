@@ -17,6 +17,9 @@ fileButton.addEventListener('change', function (e) {
 
 });
 
+$("#editPropDetails").on('click', function() {
+    console.log('working');
+});
 
 $("#editSaveBtn").on('click', function () {
     if ($(this).text() == "Save") {
