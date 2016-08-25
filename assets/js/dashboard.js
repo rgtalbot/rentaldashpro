@@ -49,26 +49,26 @@ function addProperty() {
         type = $('#prop_type'),
         status = $('#prop_status');
 
-    //building fake financials to start for property
-    var startFinance = {
-        rent: 0,
-        mortgage: 0,
-        hoa: 0,
-        maint: 0
-    }
 
     //building the object with the form information for firebase
     var property =
     {
-        name: name.val().trim(),
         address: address.val().trim(),
-        bedrooms: beds.val().trim(),
-        bathrooms: bath.val().trim(),
-        sqfeet: sqft.val().trim(),
-        description: desc.val().trim(),
-        type: type.val(),
-        status: status.val(),
-        financials: startFinance,
+        propertydetails: {
+            name: name.val().trim(),
+            bedrooms: beds.val().trim(),
+            bathrooms: bath.val().trim(),
+            sqfeet: sqft.val().trim(),
+            description: desc.val().trim(),
+            type: type.val(),
+            status: status.val()
+        },
+        financials: {
+            rent: 0,
+            mortgage: 0,
+            hoa: 0,
+            maint: 0
+        },
         image: 'https://firebasestorage.googleapis.com/v0/b/rental-dash-pro.appspot.com/o/starter.png?alt=media&token=ca604cf1-6b2a-4520-8ec4-fae63a6d50c1',
         refID: 0
     };

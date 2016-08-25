@@ -7,7 +7,7 @@ function mainFinance() {
 
         //interate through properties to get financials for bar chart
         $.each(snapshot.val(), function (index, value) {
-
+        console.log(snapshot.val())
             // check to make sure that the property is not archived first
             if (value.status !== 'Archived') {
 
@@ -18,7 +18,7 @@ function mainFinance() {
                 var maint = Number(value.financials.maint);
 
                 //set the name var base on the property name given from firebase
-                var name = value.name;
+                var name = value.propertydetails.name;
 
                 //add up the expenses
                 var expenseTotal = mortgage + hoa + maint;
@@ -116,7 +116,7 @@ function buildCardTabs() {
     database.ref('ownerProfiles/' + ownerKey + '/properties/').once('value').then(function (snapshot) {
         $('.ownerList').empty();
         $.each(snapshot.val(), function (index, value) {
-            if (value.status == $build) {
+            if (value.propertydetails.status == $build) {
                 var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3").attr('data-id', value.refID).on('click', propertyDetailsFunction);
                 var houseDiv = $('<div>').addClass("rdp-photo-card-property");
                 var houseImg = $('<img>').addClass("rdp-photo-card-img")
@@ -143,7 +143,8 @@ function buildCard() {
     database.ref('ownerProfiles/' + ownerKey + '/properties/').once('value').then(function (snapshot) {
         $('.ownerList').empty();
         $.each(snapshot.val(), function (index, value) {
-            if (value.status !== 'archived') {
+            if (value.propertydetails.status !== 'Archived') {
+                console.log(value.address);
                 var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3").attr('data-id', value.refID).on('click', propertyDetailsFunction);
                 var houseDiv = $('<div>').addClass("rdp-photo-card-property");
                 var houseImg = $('<img>').addClass("rdp-photo-card-img")

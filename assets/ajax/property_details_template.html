@@ -26,38 +26,69 @@
 
             <div class="panel">
                 <div class="panel-body">
-                    <div class="imgDetails">
-                        <img src="http://placehold.it/200x200" id="detailImage">
-                        <p><span id="addressDetail"></span></p>
-                        <span><a href="#picModal" data-toggle="modal"><img id="plus"
-                                                                           src="assets/img/plus.png"></a></span>
-                    </div>
+
 
                     <div class="propDetails">
-                        <span><img id="editPropDetails" src="assets/img/edit.png"></span>
-                        <h4 id="nameDetails">Property Name</h4>
-                        <div class="row details">
-                            <div class="col-xs-2">
-                                <p># of Bedrooms</p>
-                                <p id="bedroomDetail"></p>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="imgDetails">
+                                    <img src="http://placehold.it/200x200" id="detailImage">
+                                    <p><span id="addressDetail"></span></p>
+                                    <span><a href="#picModal" data-toggle="modal"><img id="plus"
+                                                                                       src="assets/img/plus.png"></a></span>
+                                </div>
                             </div>
-                            <div class="col-xs-2">
-                                <p># of Bathrooms</p>
-                                <p id="bathroomDetail"></p>
-                            </div>
-                            <div class="col-xs-2">
-                                <p>Square footage</p>
-                                <p id="sqfeetDetail"></p>
-                            </div>
-                            <div class="col-xs-2">
-                                <p>Occupancy Status</p>
-                                <p id="occupancyDetail"></p>
-                            </div>
-                        </div>
-                        <div class="row details">
-                            <div class="col-xs-8">
-                                <p>Property Description</p>
-                                <p id="descriptionDetails"></p>
+                            <div class="col-xs-9">
+
+                                <div class="row details">
+                                    <div class="col-xs-12">
+                                        <input type="text" class="form-control propStats" disabled id="name-input"
+                                               value="" aria-label="propStats">
+                                        <span class="btn"><img id="editPropDetails" src="assets/img/edit.png"></span>
+                                    </div>
+                                </div>
+                                <div class="row details">
+                                    <div class="col-xs-3">
+                                        <p class="text-center"># of Bedrooms</p>
+                                        <input type="number" class="form-control propStats" disabled id="bed-input"
+                                               value="0" aria-label="propStats">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <p class="text-center"># of Bathrooms</p>
+                                        <input type="number" class="form-control propStats" disabled id="bath-input"
+                                               value="0" aria-label="propStats">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <p class="text-center">Square footage</p>
+                                        <input type="number" class="form-control propStats" disabled id="sqft-input"
+                                               value="0" aria-label="propStats">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <p class="text-center">Occupancy Status</p>
+                                        <select class="form-control propStats" id="status-input" disabled>
+                                            <option selected disabled value="">Choose Property Status</option>
+                                            <option value="Occupied">Occupied</option>
+                                            <option value="Vacant">Vacant</option>
+                                            <option value="Archived">Archived</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row details">
+                                    <div class="col-xs-3">
+                                        <p class="text-center">House Type</p>
+                                        <select class="form-control propStats" id="type-input" disabled>
+                                            <option selected disabled value="">Choose Property Type</option>
+                                            <option value="House">House</option>
+                                            <option value="Condo">Condo</option>
+                                            <option value="Townhouse">Townhouse</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <p>Property Description</p>
+                                        <textarea id="description-input" class="form-control propStats" disabled></textarea>
+                                        <!--<p id="descriptionDetails"></p>-->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
