@@ -227,7 +227,6 @@ function testFunction() {
             var propDescription = childSnapshot.val().description;
             var propType = childSnapshot.val().type;
 
-            database.ref('ownerProfiles/' + ownerKey + '/financials/' + testID + '/name/').set(propName);
 
             $('#bedroomDetail').html(propBed);
             $('#bathroomDetail').html(propBath);
