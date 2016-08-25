@@ -2,6 +2,7 @@
 function mainFinance() {
 
     database.ref('ownerProfiles/' + ownerKey + '/properties/').once('value').then(function (snapshot) {
+        console.log(snapshot.val());
         var nameData = [];
         var rentData = [];
         var expenseData = [];
@@ -110,7 +111,7 @@ function buildCardTabs() {
         $('.ownerList').empty();
         $.each(snapshot.val(), function (index, value) {
             if (value.status == $build) {
-                var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3").attr('data-id', value.refID).on('click', testFunction);
+                var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3").attr('data-id', value.refID).on('click', propertyDetailsFunction);
                 var houseDiv = $('<div>').addClass("rdp-photo-card-property");
                 var houseImg = $('<img>').addClass("rdp-photo-card-img")
                     .attr("src", value.image);
