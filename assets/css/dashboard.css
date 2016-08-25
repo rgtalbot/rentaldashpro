@@ -56,8 +56,8 @@
 }
 
 #editPropDetails {
-    top: 5px;
-    right: 20px;
+    top: -10px;
+    right: 4px;
     height: 15px;
     position: absolute;
 }
@@ -106,11 +106,6 @@
 
 .container-fluid {
     min-height: 100px;
-}
-
-.row {
-    padding: 15px;
-    margin: 10px;
 }
 
 #loginWrapper {
@@ -402,4 +397,36 @@ textarea.parsley-error {
     color: red;
     font-size: 12px;
     font-weight: strong;
+}
+
+.propStats[disabled] {
+    border:none;
+    background-color: white;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.propStats {
+    text-align: center;
+    margin: 3px;
+}
+
+#description-input {
+    text-align: left;
+}
+
+.propDetails select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 47px;
+    text-overflow: "";
+}
+
+.propDetails .form-control[disabled] {
+    background-color: white;
+}
+
+#name-input {
+    font-weight:bold;
+    font-size: 22px;
 }
