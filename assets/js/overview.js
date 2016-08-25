@@ -9,7 +9,7 @@ function mainFinance() {
         $.each(snapshot.val(), function (index, value) {
             console.log(snapshot.val())
             // check to make sure that the property is not archived first
-            if (value.status !== 'Archived') {
+            if (value.propertydetails.status !== 'Archived') {
 
                 // set variables based in information in firebase and convert to numbers
                 var rent = Number(value.financials.rent),
