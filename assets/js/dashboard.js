@@ -1,7 +1,18 @@
 var count = 0,
     uniqueID;
 
-var ownerKey = firebase.auth().currentUser.uid;
+var ownerKey;
+
+firebase.auth().onAuthStateChanged( function(user) {
+
+    if (user) {
+        ownerKey = user.uid;
+        console.log("OWNER KEY: ", user.uid);
+        renderOverview();
+    } else {
+        console.log("NO USER AUTHENTICATED!!!!!");
+    }
+});
 
 $('#overViewButton').on('click', renderOverview);
 

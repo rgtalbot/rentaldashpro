@@ -21,7 +21,6 @@ function logInUser(email, password) {
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            console.log("OWNER KEY: ", ownerKey);
             window.location.assign('dashboard.html');
         }
         else {
