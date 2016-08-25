@@ -7,15 +7,15 @@ function mainFinance() {
 
         //interate through properties to get financials for bar chart
         $.each(snapshot.val(), function (index, value) {
-        console.log(snapshot.val())
+            console.log(snapshot.val())
             // check to make sure that the property is not archived first
             if (value.status !== 'Archived') {
 
                 // set variables based in information in firebase and convert to numbers
-                var rent = Number(value.financials.rent);
-                var mortgage = Number(value.financials.mortgage);
-                var hoa = Number(value.financials.hoa);
-                var maint = Number(value.financials.maint);
+                var rent = Number(value.financials.rent),
+                    mortgage = Number(value.financials.mortgage),
+                    hoa = Number(value.financials.hoa),
+                    maint = Number(value.financials.maint);
 
                 //set the name var base on the property name given from firebase
                 var name = value.propertydetails.name;
