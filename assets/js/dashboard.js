@@ -50,14 +50,11 @@ function addProperty() {
         status: $('#prop_status').val(),
         refID: 0
     };
-    // console.log(property);
-    // validateForm(property);
+
     uniqueID = database.ref('ownerProfiles/' + ownerKey + '/properties/').push(property).key;
     database.ref('ownerProfiles/' + ownerKey + '/properties/' + uniqueID + '/refID/').set(uniqueID);
     console.log(uniqueID);
 
-    // console.log("count is before if : " + count);
-    // if (count == 6) {
     buildCard();
     $('#prop_name').val("");
     $('#prop_address').val("");
@@ -69,77 +66,6 @@ function addProperty() {
     $('#townHouse').prop('checked', false);
     $('#house').prop('checked', false);
 
-    // }
     return false;
 
 };
-
-
-// function validateForm(property) {
-//     count = 0;
-//     countType = 0;
-//
-//
-//     if (property.propertyName == "") {
-//
-//         alert("Please add a Property Name.");
-//         count = 0;
-//         // return false;
-//     } else {
-//         count++;
-//     }
-//
-//     if (property.propertyAddress == "") {
-//         alert("Please add a Property Address.");
-//         count = 0;
-//         // return false;
-//     } else {
-//         count++;
-//     }
-//
-//     if (property.bedrooms == "") {
-//         alert("Please add valid number for bedrooms.");
-//         count = 0;
-//         // return false;
-//     } else if (property.bedrooms <= 0) {
-//         alert("Please provide a value greater than zero.");
-//         count = 0;
-//     } else {
-//         count++;
-//     }
-//
-//     if (property.bathroom == "") {
-//         alert("Please add a valid bathroom count.");
-//         count = 0;
-//         // return false;
-//     } else if (property.bathroom <= 0) {
-//         alert("Please provide a value greater than zero.");
-//         count = 0;
-//     } else {
-//         count++;
-//     }
-//
-//     if (property.square == "") {
-//         alert("Please add a valid number for square feet");
-//         count = 0;
-//         // return false;
-//     } else if (property.square <= 0) {
-//         alert("Please provide a value greater than zero.");
-//         count = 0;
-//     } else {
-//         count++;
-//     }
-//
-//     console.log("count is :" + count);
-//
-//     if (property.type == "Condo" || property.type == "House" || property.type == "Townhouse") {
-//         count++;
-//
-//         console.log(property.type);
-//
-//     } else {
-//         alert("Please select one valid House type.");
-//         count = 0;
-//     }
-//
-// }
