@@ -21,8 +21,6 @@ function logInUser(email, password) {
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            ownerKey = user.uid;
-            console.log("OWNER KEY: ", ownerKey);
             window.location.assign('dashboard.html');
         }
         else {
@@ -52,8 +50,6 @@ function signUpUser(name, email, password) {
             user.updateProfile({
                 displayName: name
             }).then(function() {
-                ownerKey = user.uid;
-                console.log("OWNER KEY: ", ownerKey);
                 window.location.assign('dashboard.html');
             }, function(error) {
                 console.warn("Update profile error ", error.code, " with message ", error.message);

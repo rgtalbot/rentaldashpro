@@ -1,12 +1,23 @@
 var count = 0,
     uniqueID;
 
-$('#overViewButton').on('click', renderOverview);
+var ownerKey;
 
+firebase.auth().onAuthStateChanged( function(user) {
+
+    if (user) {
+        ownerKey = user.uid;
+        console.log("OWNER KEY: ", user.uid);
+        renderOverview();
+    } else {
+        console.log("NO USER AUTHENTICATED!!!!!");
+    }
+});
+
+$('#overViewButton').on('click', renderOverview);
 
 function renderOverview() {
     $('#page-content-wrapper').load('assets/ajax/dashboard_overview_template.html', function () {
-        ownerKey = firebase.auth().currentUser.uid;
         buildCard();
         mainFinance();
     });
@@ -227,6 +238,7 @@ function testFunction() {
             var propDescription = childSnapshot.val().description;
             var propType = childSnapshot.val().type;
 
+            database.ref('ownerProfiles/' + ownerKey + '/financials/' + testID + '/name/').set(propName);
 
             $('#bedroomDetail').html(propBed);
             $('#bathroomDetail').html(propBath);

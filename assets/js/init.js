@@ -12,4 +12,3 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 var authData = firebase.auth();
-var ownerKey;
