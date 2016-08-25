@@ -1,6 +1,8 @@
 var count = 0,
     uniqueID;
 
+var ownerKey = firebase.auth().currentUser.uid;
+
 $('#overViewButton').on('click', renderOverview);
 
 function renderOverview() {
