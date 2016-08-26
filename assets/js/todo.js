@@ -1,6 +1,3 @@
-$('#todoHeading').html('All Properties');
-
-
 $('#add_todo_form').on('submit', function (e) {
     e.preventDefault();
     console.log('working');
@@ -35,6 +32,7 @@ function sort() {
                 var propertyKey = $('#propertySelectDisplay').val();
                 if (snapshot.val().property == propertyKey) {
                     todoList(snapshot);
+
                 }
             }
         });
@@ -89,7 +87,6 @@ function removeTodo(e) {
     $('#todoList').empty();
     database.ref('ownerProfiles/' + ownerKey + '/reminders/' + key).remove().then(function () {
         sort();
-        console.log('removed');
     });
     return false;
 }
@@ -98,8 +95,8 @@ function completeTodo(e) {
 e.preventDefault();
     var key = $(this).closest('.row').attr('key');
     database.ref('ownerProfiles/' + ownerKey + '/reminders/' + key + '/status').set('completed').then(function () {
-        console.log('completed');
     });
+    sort();
     return false;
 
 }

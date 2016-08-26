@@ -180,13 +180,36 @@ function buildCard() {
 function propertyDetailsFunction() {
     userID = $(this).data('id');
     $('#page-content-wrapper').load('assets/ajax/property_details_template.html', function () {
-
+        buildCard();
+        renderTodoList();
     });
 }
 
 function renderTodoList() {
     $('#todoPanel').load('assets/ajax/todo_list_template.html', function() {
+        if ($(this).hasClass('panel-body')) {
 
+            $('#propertySelectDisplay').find('option[value="Test"]').removeAttr('disabled');
+
+            $('#propertySelectDisplay').val('Test');
+
+
+
+            $('#propertySelectDisplay').find('option[value="Test"]').attr('value', userID);
+
+            $('#propertySelectDisplay').attr('disabled', true);
+
+
+            $('#propertySelect').val(userID);
+
+            $('#propertySelect').attr('disabled', true);
+
+
+            sort();
+
+        } else {
+            //do nothing
+        }
     });
 }
 
