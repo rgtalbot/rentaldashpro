@@ -1,6 +1,3 @@
-
-
-console.log(userID);
 $('#add_todo_form').on('submit', function (e) {
     e.preventDefault();
     console.log('working');
@@ -31,10 +28,8 @@ function sort() {
         database.ref('ownerProfiles/' + ownerKey + '/reminders/').orderByChild('date').on('child_added', function (snapshot) {
             if ($('#propertySelectDisplay').val() == 'All') {
                 todoList(snapshot);
-                console.log('here?');
             } else {
                 var propertyKey = $('#propertySelectDisplay').val();
-                console.log('property key', propertyKey);
                 if (snapshot.val().property == propertyKey) {
                     todoList(snapshot);
 
@@ -92,7 +87,6 @@ function removeTodo(e) {
     $('#todoList').empty();
     database.ref('ownerProfiles/' + ownerKey + '/reminders/' + key).remove().then(function () {
         sort();
-        console.log('removed');
     });
     return false;
 }
@@ -101,7 +95,6 @@ function completeTodo(e) {
 e.preventDefault();
     var key = $(this).closest('.row').attr('key');
     database.ref('ownerProfiles/' + ownerKey + '/reminders/' + key + '/status').set('completed').then(function () {
-        console.log('completed');
     });
     sort();
     return false;

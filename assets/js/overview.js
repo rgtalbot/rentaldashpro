@@ -182,16 +182,13 @@ function propertyDetailsFunction() {
     $('#page-content-wrapper').load('assets/ajax/property_details_template.html', function () {
         buildCard();
         renderTodoList();
-
-        console.log('donkeys fly in the sky');
     });
 }
 
 function renderTodoList() {
     $('#todoPanel').load('assets/ajax/todo_list_template.html', function() {
         if ($(this).hasClass('panel-body')) {
-            console.log(userID);
-            console.log('property details');
+
             $('#propertySelectDisplay').find('option[value="Test"]').removeAttr('disabled');
 
             $('#propertySelectDisplay').val('Test');
@@ -202,10 +199,16 @@ function renderTodoList() {
 
             $('#propertySelectDisplay').attr('disabled', true);
 
+
+            $('#propertySelect').val(userID);
+
+            $('#propertySelect').attr('disabled', true);
+
+
             sort();
 
         } else {
-            console.log('dashboard overview')
+            //do nothing
         }
     });
 }

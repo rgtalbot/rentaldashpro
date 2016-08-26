@@ -6,10 +6,9 @@ firebase.auth().onAuthStateChanged(function (user) {
 
     if (user) {
         ownerKey = user.uid;
-        console.log("OWNER KEY: ", user.uid);
         renderOverview();
     } else {
-        console.log("NO USER AUTHENTICATED!!!!!");
+        console.warn("NO USER AUTHENTICATED!!!!!");
     }
 });
 
