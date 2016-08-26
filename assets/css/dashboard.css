@@ -430,3 +430,12 @@ textarea.parsley-error {
     font-weight:bold;
     font-size: 22px;
 }
+
+input[type=date]::-webkit-inner-spin-button, input[type=date]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.listBtn {
+    margin: 2px;
+}

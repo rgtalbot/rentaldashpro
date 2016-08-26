@@ -7,7 +7,6 @@ function mainFinance() {
 
         //interate through properties to get financials for bar chart
         $.each(snapshot.val(), function (index, value) {
-            console.log(snapshot.val())
             // check to make sure that the property is not archived first
             if (value.propertydetails.status !== 'Archived') {
 
@@ -144,7 +143,6 @@ function buildCard() {
         $('.ownerList').empty();
         $.each(snapshot.val(), function (index, value) {
             if (value.propertydetails.status !== 'Archived') {
-                console.log(value.address);
                 var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3").attr('data-id', value.refID).on('click', propertyDetailsFunction);
                 var houseDiv = $('<div>').addClass("rdp-photo-card-property");
                 var houseImg = $('<img>').addClass("rdp-photo-card-img")
@@ -161,6 +159,17 @@ function buildCard() {
                 houseDiv2.appendTo(houseDiv);
                 houseDiv.appendTo(houseCol);
                 $('.ownerList').append(houseCol);
+
+                var $option = $('<option>')
+                    .attr('value', value.refID)
+                    .text(value.address);
+
+                $('#propertySelectDisplay').append($option);
+                var $options = $('<option>')
+                    .attr('value', value.refID)
+                    .text(value.address);
+                $('#propertySelect').append($options);
+
             }
         });
     });
@@ -174,3 +183,10 @@ function propertyDetailsFunction() {
 
     });
 }
+
+function renderTodoList() {
+    $('#todoPanel').load('assets/ajax/todo_list_template.html', function() {
+
+    });
+}
+

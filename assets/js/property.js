@@ -9,7 +9,7 @@ fileButton.addEventListener('change', function (e) {
     var task = storageRef.put(file).then(function () {
         storageRef.getDownloadURL().then(function (url) {
             $('#picModal').modal('hide');
-            
+
             console.log(propID);
             database.ref('ownerProfiles/' + ownerKey + '/properties/' + propID + '/image/').set(url);
         });
@@ -111,7 +111,9 @@ database.ref('ownerProfiles/' + ownerKey + '/properties/' + userID).on("value", 
     maint = Number(parseFloat(maint).toFixed(2));
 
     var profit = Number(parseFloat(rent - (maint + hoa + mortgage)).toFixed(2));
+    console.log(profit);
     var pieDataChart = [mortgage, hoa, maint, profit];
+    console.log(pieDataChart);
 
     // pie chart data
     var pieData = {
