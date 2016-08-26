@@ -79,6 +79,11 @@ $(document).ready(function() {
         }
     });
 
+    $(document).keypress(function (e) {
+        if (e.which == 13)
+            $('#login-btn').trigger('click');
+    });
+
     $('.modal-signup-btn').on('click', function(event) {
         event.preventDefault();
 
@@ -112,13 +117,12 @@ $(document).ready(function() {
             return;
         }
 
-        if ( validEmail.test(signupEmail) ) {
+        if ( validEmail.test(signupEmail) || grecaptcha.getResponse().length != 0 ) {
             signUpUser(signupName, signupEmail, signupPass);
         }
         else {
-            $('#signup-email').parent().addClass('has-error');
-            $('#signup-email').val('').attr('placeholder', 'Please enter a valid email address');
-            console.warn("Invalid email format");
+            // TODO: VALIDATIONS AND ERROR HANDLING
+            console.warn("Error");
         }
     });
 
@@ -164,20 +168,4 @@ $(document).ready(function() {
         }
 
     })
-});
-
-
-$('.login').keypress(function (e) {
-    if (e.which == 13) {
-        var loginEmail = $('#login-email').val().trim();
-        var loginPass = $('#login-password').val().trim();
-
-        if ( validEmail.test(loginEmail) && loginPass !== '' ) {
-            logInUser(loginEmail, loginPass);
-        }
-        else {
-            // TODO: DISPLAY INVALID FORM FIELD MESSAGES
-            console.warn("Invalid form fields.");
-        }
-    }
 });
