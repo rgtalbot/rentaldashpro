@@ -191,11 +191,25 @@
 <script src="assets/js/init.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/parsley.js"></script>
+<!-- Weather Underground API -->
+<script>
+    jQuery(document).ready(function($) {
+        $.ajax({
+            url : "http://api.wunderground.com/api/c341a9d13b9ad757/forecast/geolookup/conditions/q/autoip.json",
+            dataType : "jsonp",
+            success : function(parsed_json) {
+                var location = parsed_json['location']['city'];
+                var temp_f = parsed_json['current_observation']['temp_f'];
+                //alert("Current temperature in " + location + " is: " + temp_f);
+            }
+        });
+    });
+</script>
 <script>
     // ==============================
     // google maps api
     // ==============================
-    // This example displays an address form, using the autocomplete feature
+    // This example displays an address form, using the auto-complete feature
     // of the Google Places API to help users fill in the information.
 
     // This example requires the Places library. Include the libraries=places
@@ -212,15 +226,17 @@
                 (document.getElementById('prop_address')),
                 {types: ['geocode']});
 
-        // When the user selects an address from the dropdown, populate the address
+        // When the user selects an address from the drop-down, populate the address
         // fields in the form.
 
         console.log(autocomplete);
 
     }
 </script>
-<!-- Google Map Autocomplete JS -->
+<!-- Google Map Auto-complete JS -->
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE&libraries=places&callback=initAutocomplete"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
 </body>
 </html>
