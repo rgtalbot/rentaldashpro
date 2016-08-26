@@ -365,7 +365,10 @@ body {
     background-image: url('../img/background_login.jpg');
     background-position: top;
     background-size: cover;
+}
 
+.jumbotron .well {
+    background-color: rgba(255, 255, 255, 0.52);
 }
 
 .content-section {
