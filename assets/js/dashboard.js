@@ -20,6 +20,7 @@ function renderOverview() {
     $('#page-content-wrapper').load('assets/ajax/dashboard_overview_template.html', function () {
         buildCard();
         mainFinance();
+        renderTodoList();
     });
 }
 
