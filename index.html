@@ -57,55 +57,121 @@
     <div class="jumbotron">
         <div class="container">
             <div class="row">
-                <!-- TODO: ADD JUMBOTRON CONTENT HERE -->
-                <div class="col-md-4 col-sm-4 col-md-offset-7 col-sm-offset-7">
+                <!-- TODO: FIX MEDIA QUERY BUGS WHEN DISPLAYING ON SMALLER SCREENS -->
+                <div class="col-md-5 col-sm-5 col-md-offset-7 col-sm-offset-7">
                     <div id="well-get-started" class="well text-center">
+                        <h1>GET STARTED TODAY!<br>
+                            <h4>Property Owner Management Portal</h4>
+                        </h1>
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <label class="sr-only" for="signup-name">Name</label>
-                                    <input type="text" class="form-control" id="signup-name" placeholder="Name">
+                                    <input type="text" class="form-control transparent-input" id="signup-name" placeholder="Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <label class="sr-only" for="signup-email">Email address</label>
-                                    <input type="text" class="form-control" id="signup-email" placeholder="Email">
+                                    <input type="text" class="form-control transparent-input" id="signup-email" placeholder="Email">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     <label class="sr-only" for="signup-password">Password</label>
-                                    <input type="password" class="form-control" id="signup-password" placeholder="Password">
+                                    <input type="password" class="form-control transparent-input" id="signup-password" placeholder="Password">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <a class="btn btn-md btn-success btn-block" href="#" role="button">Sign Up</a>
+                                    <label class="sr-only" for="retype-password">Confirm password</label>
+                                    <input type="password" class="form-control transparent-input" id="retype-password" placeholder="Confirm password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 text-center">
+                                    <div class="g-recaptcha" data-theme="light" data-sitekey="6Lfy8icTAAAAAAFlg3pHN5IwoXsfdQM__yPEMln1" style="transform: scale(0.96999);-webkit-transform: scale(0.96999);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <span class="signup-btn" role="button">SIGN UP</a>
                                 </div>
                             </div>
                         </form>
                     </div> <!-- /#well-get-started -->
                 </div>
-            </div>
+            </div> <!-- /.row -->
         </div> <!-- /.container -->
     </div> <!-- /.jumbotron -->
 
     <!-- Main Content -->
     <div class="container-fluid content-section">
-        <div class="section-rentals">
+        <div class="section-rentals clearfix">
             <!-- TODO: ADD RENTALS STUFF HERE -->
-        </div>
-        <div class="section-documents">
-            <!-- TODO: ADD DOCUMENT STORAGE FEATURE STUFF HERE -->
-        </div>
-        <div class="section-finance">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <h2>Heading</h2>
+                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                  <h2>Heading</h2>
+                  <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+               </div>
+            </div> <!-- /.row -->
+        </div>  <!-- /.section-rentals -->
+
+        <div class="section-finance clearfix">
             <!-- TODO: ADD FINANCE FEATURES STUFF CONTENT HERE -->
-        </div>
-        <div class="section-maintenance">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+               </div>
+            </div> <!-- /.row -->
+        </div>  <!-- /.section-finance -->
+
+        <div class="section-documents clearfix">
+            <!-- TODO: ADD DOCUMENT STORAGE FEATURE STUFF HERE -->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+               </div>
+            </div> <!-- /.row -->
+        </div>  <!-- /.section-documents -->
+
+        <div class="section-maintenance clearfix">
             <!-- TODO: ADD MAINTENANCE TRACKING FEATURE CONTENT HERE -->
-        </div>
-    </div> <!-- /.container-fluid -->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+               </div>
+            </div> <!-- /.row -->
+        </div>  <!-- /.section-maintenance -->
+
+    </div> <!-- /.container-fluid .content-section -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -123,6 +189,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <!--Google recaptcha JS -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
     <!-- Global JS -->
