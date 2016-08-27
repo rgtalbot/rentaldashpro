@@ -360,13 +360,24 @@ body {
 }
 
 /* ----------- Main Content ----------- */
+.app-go {
+    height: 200px;
+    color: #fff;
+    background-image: url('../img/background_pattern.png');
+    background-position: left;
+    background-repeat: repeat;
+    margin: 0;
+    padding-top: 50px;
+    line-height: 1.5em;
+}
+
 .jumbotron {
-    height: 625px;
+    height: 715px;
     margin-bottom: 0;
     background-image: url('../img/background_login.jpg');
     background-position: top;
     background-size: cover;
-    padding-top: 20px;
+    padding-top: 60px;
 }
 
 .jumbotron .well {
@@ -382,13 +393,13 @@ body {
 }
 
 input.transparent-input {
-       background-color: rgba(255, 255, 255, 0.25) !important;
-       border: rgba(229, 229, 229, 0.25) !important;
-       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-       color: #fff;
-       font-size: 16px;
-       letter-spacing: 0.0625em;
-       height: 45px;
+   background-color: rgba(255, 255, 255, 0.25) !important;
+   border: rgba(229, 229, 229, 0.25) !important;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   color: #fff;
+   font-size: 16px;
+   letter-spacing: 0.0625em;
+   height: 45px;
 }
 
 /* Placeholder text styles - Vendor prefix CSS properties */
@@ -469,11 +480,37 @@ input:-ms-input-placeholder { color: #fff !important; }
     font-size: 12px;
 }
 
+.feature-divider {
+  margin: 50px 0;
+}
+
+.feature-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.feature>div {
+    text-align: center;
+    line-height: 1.5em;
+}
+
 /* ----------- Media Queries ----------- */
 @media screen and (min-width: 768px) {
+
     .jumbotron .h1, .jumbotron h1 {
         font-size: 32px;
     }
+
+    .feature-heading {
+      font-size: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+  .feature-heading {
+    margin-top: 120px;
+  }
 }
 
 @media screen and (max-height: 575px) {
