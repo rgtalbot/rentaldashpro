@@ -90,6 +90,7 @@
         </ul>
     </div>
     <!-- /#sidebar-wrapper -->
+
     <!--modal structure -->
     <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -109,6 +110,7 @@
                         <h4>HECK YES!</h4>
                         <p>Everything ee</p>
                     </div>
+                    <!--add property form-->
                     <form id="add_prop_form" data-parsely-validate="">
                         <div class="form-group">
                             <label for="prop_name">Property Name</label>
@@ -166,14 +168,13 @@
     <!--end modal-->
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
+        <!--ajax templates load here-->
     </div>
     <!-- /#page-content-wrapper -->
 
 </div>
 <!-- /#wrapper -->
 
-<!-- =================================================== -->
 <!-- jQuery JS -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"
         integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
@@ -184,40 +185,16 @@
         crossorigin="anonymous"></script>
 <!-- Firebase JS -->
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-
 <!-- Chart JS -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.min.js'></script>
-<!-- Global JS -->
+<!-- Firebase Initialize JS -->
 <script src="assets/js/init.js"></script>
+<!--Global JS for the owner side dashboard-->
 <script src="assets/js/dashboard.js"></script>
+<!--Form verification JS-->
 <script src="assets/js/parsley.js"></script>
-<script>
-    // ==============================
-    // google maps api
-    // ==============================
-    // This example displays an address form, using the autocomplete feature
-    // of the Google Places API to help users fill in the information.
-
-    // This example requires the Places library. Include the libraries=places
-    // parameter when you first load the API. For example:
-    // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-    var autocomplete;
-
-
-    function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-                (document.getElementById('prop_address')),
-                {types: ['geocode']});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-
-    }
-</script>
 <!-- Google Map Autocomplete JS -->
+<script src="assets/js/googmapapi.js"></script>
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz1HP3qVgiI2CyXWFnKV6z9AKnM4CXJyE&libraries=places&callback=initAutocomplete"></script>
 </body>

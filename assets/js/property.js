@@ -24,6 +24,7 @@ $("#editPropDetails").on('click', function () {
         $('.propStats').removeAttr('disabled');
         test = 1;
     } else if (test == 1) {
+        // gather edits
         $('.propStats').attr('disabled', true);
         var name = $('#name-input').val().trim(),
             beds = $('#bed-input').val(),
@@ -32,6 +33,7 @@ $("#editPropDetails").on('click', function () {
             status = $('#status-input').val(),
             type = $('#type-input').val(),
             description = $('#description-input').val().trim();
+        //push edits to firebase
         database.ref('ownerProfiles/' + ownerKey + '/properties/' + userID + '/propertydetails').set({
             name: name,
             bedrooms: beds,
@@ -46,6 +48,7 @@ $("#editPropDetails").on('click', function () {
     }
 });
 
+//on click to edit financials
 $("#editSaveBtn").on('click', function () {
     if ($(this).text() == "Save") {
         $(this).text('Edit');
@@ -54,12 +57,12 @@ $("#editSaveBtn").on('click', function () {
             mortgage = $('#mort-input').val().trim(),
             hoa = $('#hoa-input').val().trim(),
             maint = $('#maint-input').val().trim();
-
+//parse inputs to numbers
         rent = parseFloat(rent).toFixed(2);
         mortgage = parseFloat(mortgage).toFixed(2);
         hoa = parseFloat(hoa).toFixed(2);
         maint = parseFloat(maint).toFixed(2);
-
+//push financials to firebase
         database.ref('ownerProfiles/' + ownerKey + '/properties/' + userID + '/financials').set({
             rent: rent,
             mortgage: mortgage,
