@@ -84,7 +84,7 @@ $(document).ready(function() {
             $('#login-btn').trigger('click');
     });
 
-    $('.modal-signup-btn').on('click', function(event) {
+    $('#signup-btn').on('click', function(event) {
         event.preventDefault();
 
         var signupName = $('#signup-name').val().trim();
@@ -168,4 +168,8 @@ $(document).ready(function() {
         }
 
     })
+
+    $('.back-btn').on('click', function(event) {
+        window.location.assign('index.html');
+    });
 });

@@ -39,13 +39,13 @@
     <!-- Site custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!-- Sign Up page custom CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/signup.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css">
 </head>
-
 <body>
     <!-- Alert messages are displayed here. -->
     <div class="alert-messages"></div>
-    <!-- TODO: ADD BACK BUTTON TO RETURN TO HOME PAGE -->
+
+    <span class="glyphicon glyphicon-chevron-left back-btn" aria-hidden="true"></span>
 
     <div class="rental-dash">
         <img src="assets/img/logo_white.png">
@@ -55,88 +55,29 @@
 
     <div id="login-wrapper">
         <hr>
-        <form id="loginForm">
+        <form id="signup-form">
             <div class="form-group">
-                <label class="sr-only" for="login-email">Email</label>
-                <input class="form-control login" type="text" id="login-email" placeholder="Email">
+                <label class="sr-only" for="signup-name">Email</label>
+                <input class="form-control login" type="text" id="signup-name" placeholder="Name">
             </div>
             <div class="form-group">
-                <label class="sr-only" for="login-password">Password</label>
-                <input class="form-control login" type="password" id="login-password" placeholder="Password">
-                <div class="forgot-password text-right">
-                    <span data-toggle="modal" data-target="#forgot-password-modal">forgot password?</span>
-                </div>
+                <label class="sr-only" for="signup-email">Email</label>
+                <input class="form-control login" type="text" id="signup-email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="signup-password">Password</label>
+                <input class="form-control login" type="password" id="signup-password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="signup-retype">Password</label>
+                <input class="form-control login" type="password" id="signup-retype" placeholder="Confirm password">
+            </div>
+            <div class="form-group">
+                <div class="g-recaptcha" data-theme="light" data-sitekey="6Lfy8icTAAAAAAFlg3pHN5IwoXsfdQM__yPEMln1" style="transform: scale(0.96999);-webkit-transform: scale(0.96999);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
             </div>
         </form>
-        <button class="btn btn-block" id="login-btn" type="submit">Log In</button>
-        <button class="btn btn-block" id="signup-btn" data-toggle="modal" data-target="#signup-modal">Sign Up</button>
+        <button class="btn btn-block" id="signup-btn">Sign Up</button>
     </div>
-
-    <!-- Sign Up modal -->
-    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="Sign Up Modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Rental Dash Pro Sign Up Form</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="signup-name">Name</label>
-                            <input type="text" class="form-control" id="signup-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-email">Email</label>
-                            <input type="email" class="form-control" id="signup-email">
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-password">Password</label>
-                            <input type="password" class="form-control" id="signup-password">
-                        </div>
-                        <div class="form-group">
-                            <label for="signup-retype">Retype Password</label>
-                            <input type="password" class="form-control" id="signup-retype">
-                        </div>
-                        <div class="g-recaptcha" data-sitekey="6Lfy8icTAAAAAAFlg3pHN5IwoXsfdQM__yPEMln1"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn modal-signup-btn">Sign Up</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--END Sign Up modal-->
-
-    <!-- Forgot Password Modal -->
-    <div class="modal fade" id="forgot-password-modal" tabindex="-1" role="dialog" aria-labelledby="Forgot Password Modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span
-                            aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Request Password Reset Link</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="reset-email">Email</label>
-                            <input type="email" class="form-control" id="reset-email">
-                        </div>
-                        <div class="g-recaptcha" data-sitekey="6Lfy8icTAAAAAAFlg3pHN5IwoXsfdQM__yPEMln1"></div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn modal-send-reset-btn">Send</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--END Forgot Password Modal-->
 
     <!-- TODO: ADD FOOTER -->
 
@@ -156,9 +97,8 @@
     <!-- Global JS -->
     <script src="assets/js/init.js"></script>
     <!-- Sign Up page JS -->
-    <script src="assets/js/signup.js"></script>
+    <script src="assets/js/login.js"></script>
     <!-- =================================================== -->
 
 </body>
-
 </html>
