@@ -69,19 +69,11 @@ function todoList(snapshot) {
     if (status == "no") {
         if (snapshot.val().status !== 'completed') {
             buildList(snapshot);
-            $('#todoDate').removeAttr('disabled');
-            $('#todoReminder').removeAttr('disabled');
-            $('#propertySelect').removeAttr('disabled');
-            $('.todoAddButton').removeAttr('disabled');
         }
     } else if (status=="yes") {
         if (snapshot.val().status == 'completed') {
             buildList(snapshot);
             $('.complete').remove();
-            $('#todoDate').attr('disabled',true);
-            $('#todoReminder').attr('disabled', true);
-            $('#propertySelect').attr('disabled', true);
-            $('.todoAddButton').attr('disabled', true);
         }
     }
 }

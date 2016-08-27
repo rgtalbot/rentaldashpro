@@ -141,14 +141,6 @@ function buildCardTabs() {
 function buildCard() {
     database.ref('ownerProfiles/' + ownerKey + '/properties/').once('value').then(function (snapshot) {
         $('.ownerList').empty();
-        $('#propertySelectDisplay').empty();
-        $('#propertySelect').empty();
-        var $test = $('<option>').val('Test').attr('disabled', true).text('This Property');
-        $('#propertySelectDisplay').append($test);
-        var $all = $('<option>').val('All').attr('selected', true).text('All Properties');
-        $('#propertySelectDisplay').append($all);
-        var $choose = $('<option>').attr('selected', true).attr('disabled', true).text('Choose Property');
-        $choose.appendTo('#propertySelect');
         $.each(snapshot.val(), function (index, value) {
             if (value.propertydetails.status !== 'Archived') {
                 var houseCol = $('<div>').addClass("col-xs-6 col-md-4 col-lg-3").attr('data-id', value.refID).on('click', propertyDetailsFunction);
