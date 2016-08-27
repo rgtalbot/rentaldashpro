@@ -375,6 +375,10 @@ body {
     line-height: 1.5em;
 }
 
+.page-header {
+    margin-bottom: 55px;
+}
+
 .jumbotron {
     height: 715px;
     margin-bottom: 0;
