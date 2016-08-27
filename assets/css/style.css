@@ -371,7 +371,7 @@ body {
 
 .jumbotron .well {
     padding: 25px;
-    background-color: rgba(48, 48, 48, 0.45);
+    background-color: rgba(48, 48, 48, 0.75);
     color: #fff;
     border-color: #303030;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -391,7 +391,7 @@ input.transparent-input {
        height: 45px;
 }
 
-/* Placeholder text vendor prefix CSS properties */
+/* Placeholder text styles - Vendor prefix CSS properties */
 input::-webkit-input-placeholder { color: #fff !important; }
 input:-moz-placeholder { color: #fff !important; opacity: 1; } /* Firefox 18- */
 input::-moz-placeholder { color: #fff !important; opacity: 1; } /* Firefox 19+ */
@@ -431,28 +431,22 @@ input:-ms-input-placeholder { color: #fff !important; }
 .content-section>div.clearfix {
     padding-top: 20px;
     padding-right: 100px;
+    padding-bottom: 20px;
     padding-left: 100px;
 }
 
-.section-rentals {
-    height: 325px;
-    background-color: #fff;
+.content-section img.center-block {
+    max-height: 200px;
 }
 
-.section-finance {
-    height: 300px;
-    background-color: #438B83;
-}
-
-.section-documents {
-    height: 275px;
-    background-color: #fff;
-}
-
+.section-rentals { background-color: #fff; }
 .section-maintenance {
-    height: 300px;
     background-color: #1D4455;
+    color: #fff;
 }
+.section-finance { background-color: #fff; }
+.section-documents { background-color: #438B83; }
+
 
 /* ----------- Footer ----------- */
 .footer {
