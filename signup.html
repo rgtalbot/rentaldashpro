@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Brent Bentley, Ryan Talbot, Ronny Tomasetti, George Witt">
+    <meta name="description" content="Rental property management portal giving property owners the ability to keep track of financial reports, legal documents, rental contracts, maintenance remainders and issues regarding their portfolio of rental properties.">
+    <meta name="keywords" content="property owner dashboard, rental property management dashboard, rental property management software, property management application">
+
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="assets/img/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="assets/img/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/img/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="assets/img/favicon-144.png">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+    <title>Sign Up - Rental Dash Pro</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Site custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Sign Up page custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/login.css">
+</head>
+<body>
+    <!-- Alert messages are displayed here. -->
+    <div class="alert-messages"></div>
+
+    <span class="glyphicon glyphicon-chevron-left back-btn" aria-hidden="true"></span>
+
+    <div class="rental-dash">
+        <img src="assets/img/logo_white.png">
+        <p>RENTAL<span id="dash">DASH</span> PRO</p>
+        <span class="owner-dash">PROPERTY OWNER DASHBOARD</span>
+    </div>
+
+    <div id="login-wrapper">
+        <hr>
+        <form id="signup-form">
+            <div class="form-group">
+                <label class="sr-only" for="signup-name">Email</label>
+                <input class="form-control login" type="text" id="signup-name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="signup-email">Email</label>
+                <input class="form-control login" type="text" id="signup-email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="signup-password">Password</label>
+                <input class="form-control login" type="password" id="signup-password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="signup-retype">Password</label>
+                <input class="form-control login" type="password" id="signup-retype" placeholder="Confirm password">
+            </div>
+            <div class="form-group">
+                <div class="g-recaptcha" data-theme="light" data-sitekey="6Lfy8icTAAAAAAFlg3pHN5IwoXsfdQM__yPEMln1" style="transform: scale(0.96999);-webkit-transform: scale(0.96999);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+            </div>
+        </form>
+        <button class="btn btn-block" id="signup-btn">Sign Up</button>
+    </div>
+
+    <!-- TODO: ADD FOOTER -->
+
+    <!-- =================================================== -->
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"></script>
+    <!--Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <!--Google recaptcha JS -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- Firebase JS -->
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <!-- Global JS -->
+    <script src="assets/js/init.js"></script>
+    <!-- Sign Up page JS -->
+    <script src="assets/js/login.js"></script>
+    <!-- =================================================== -->
+
+</body>
+</html>

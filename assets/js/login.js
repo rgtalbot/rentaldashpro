@@ -15,8 +15,9 @@ var validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
  */
 function logInUser(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-        console.warn("Login error ", error.code, " with message ", error.message);
         // TODO: DISPLAY ERROR MESSAGE TO USER.
+        console.warn("Login error ", error.code, " with message ", error.message);
+        displayMessage("Login error " + error.code + " with message " + error.message, 'alert-danger');
     });
 
     firebase.auth().onAuthStateChanged(function(user) {
@@ -26,6 +27,7 @@ function logInUser(email, password) {
         else {
             console.warn("Invalid user");
             // TODO: DISPLAY ERROR MESSAGE TO USER.
+            displayMessage('Invalid email or password.', 'alert-danger');
         }
     });
 }
@@ -42,7 +44,7 @@ function signUpUser(name, email, password) {
 
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
         console.warn("Sign-up error ", error.code, " with message ", error.message);
-        // TODO: DISPLAY ERROR MESSAGE TO USER.
+        displayMessage("Sign-up error " + error.code + " with message " + error.message, 'alert-danger');
     });
 
     firebase.auth().onAuthStateChanged(function(user) {
@@ -57,6 +59,25 @@ function signUpUser(name, email, password) {
             });
         }
     });
+}
+
+/**
+ * Displays an error message in the alert messages div and closes it after 5 seconds.
+ *
+ * @param {string} message Message to display.
+ * @param {string} alertType Bootstrap alert style to use when displaying the message.
+ * @return {undefined} undefined
+ */
+function displayMessage( message, alertType) {
+
+    var alert = $('<div>').addClass('alert alert-dismissible fade in' + alertType)
+                          .attr('role', 'alert')
+                          .text(message);
+    $('.alert-messages').append(alert);
+
+    setTimeout(function() {
+        $('.alert-dismissible').alert('close');
+    }, 5000);
 }
 
 // =========================================================
@@ -76,10 +97,16 @@ $(document).ready(function() {
         else {
             // TODO: DISPLAY INVALID FORM FIELD MESSAGES
             console.warn("Invalid form fields.");
+            displayMessage('Invalid form fields.', 'alert-danger');
         }
     });
 
-    $('.modal-signup-btn').on('click', function(event) {
+    $(document).keypress(function (e) {
+        if (e.which == 13)
+            $('#login-btn').trigger('click');
+    });
+
+    $('#signup-btn').on('click', function(event) {
         event.preventDefault();
 
         var signupName = $('#signup-name').val().trim();
@@ -112,13 +139,12 @@ $(document).ready(function() {
             return;
         }
 
-        if ( validEmail.test(signupEmail) ) {
+        if ( validEmail.test(signupEmail) || grecaptcha.getResponse().length != 0 ) {
             signUpUser(signupName, signupEmail, signupPass);
         }
         else {
-            $('#signup-email').parent().addClass('has-error');
-            $('#signup-email').val('').attr('placeholder', 'Please enter a valid email address');
-            console.warn("Invalid email format");
+            // TODO: VALIDATIONS AND ERROR HANDLING
+            console.warn("Error");
         }
     });
 
@@ -131,53 +157,22 @@ $(document).ready(function() {
 
             firebase.auth().sendPasswordResetEmail(resetEmail).then(function() {
 
-                var alert = $('<div>').addClass('alert alert-info alert-dismissible fade in')
-                                      .attr('role', 'alert')
-                                      .text('Please check your email for password reset link.');
-                $('.alert-messages').append(alert);
+                displayMessage('Please check your email for password reset link.', 'alert-success');
 
             }, function(error) {
                 console.warn("Send reset error ", error.code, " with message ", error.message);
-                var alert = $('<div>').addClass('alert alert-danger alert-dismissible fade in')
-                                      .attr('role', 'alert')
-                                      .text('Error processing your request. Please try again later.');
-                $('.alert-messages').append(alert);
+
+                displayMessage('Error processing your request. Please try again later.', 'alert-danger');
             });
-
-            $('#forgot-password-modal').modal('hide');
-            $('#reset-email').val('');
-            setTimeout(function() {
-                $('.alert-dismissible').alert('close');
-            }, 5000);
-
-        } else {
-            var alert = $('<div>').addClass('alert alert-info alert-dismissible fade in')
-                                  .attr('role', 'alert')
-                                  .text('Invalid email. Please try your request again.');
-            $('.alert-messages').append(alert);
-
-            $('#forgot-password-modal').modal('hide');
-            $('#reset-email').val('');
-            setTimeout(function() {
-                $('.alert-dismissible').alert('close');
-            }, 3000);
         }
+        else
+            displayMessage('Invalid email. Please submit a valid email.', 'alert-danger');
 
-    })
-});
+        $('#forgot-password-modal').modal('hide');
+        $('#reset-email').val('');
+    });
 
-
-$('.login').keypress(function (e) {
-    if (e.which == 13) {
-        var loginEmail = $('#login-email').val().trim();
-        var loginPass = $('#login-password').val().trim();
-
-        if ( validEmail.test(loginEmail) && loginPass !== '' ) {
-            logInUser(loginEmail, loginPass);
-        }
-        else {
-            // TODO: DISPLAY INVALID FORM FIELD MESSAGES
-            console.warn("Invalid form fields.");
-        }
-    }
+    $('.back-btn').on('click', function(event) {
+        window.location.assign('index.html');
+    });
 });

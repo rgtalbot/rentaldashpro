@@ -38,6 +38,13 @@
         crossorigin="anonymous">
     <!-- Site custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <style>
+        /* Placeholder text styles - Vendor prefix CSS properties */
+        input::-webkit-input-placeholder { color: #fff !important; }
+        input:-moz-placeholder { color: #fff !important; opacity: 1; } /* Firefox 18- */
+        input::-moz-placeholder { color: #fff !important; opacity: 1; } /* Firefox 19+ */
+        input:-ms-input-placeholder { color: #fff !important; }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -55,31 +62,131 @@
 
     <!-- Landing jumbotron -->
     <div class="jumbotron">
-      <div class="container">
-          <!-- TODO: ADD JUMBOTRON CONTENT HERE -->
-      </div>
-    </div>
+        <div class="container">
+            <div class="row">
+                <!-- TODO: FIX MEDIA QUERY BUGS WHEN DISPLAYING ON SMALLER SCREENS -->
+                <div class="col-xs-5 col-sm-5 col-md-5 col-xs-offset-7 col-md-offset-7 col-sm-offset-7">
+                    <div id="well-get-started" class="well text-center">
+                        <h1>GET STARTED TODAY!<br>
+                            <h4>Rental Property Management Portal</h4>
+                        </h1>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="sr-only" for="signup-name">Name</label>
+                                    <input type="text" class="form-control transparent-input" id="signup-name" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="sr-only" for="signup-email">Email address</label>
+                                    <input type="text" class="form-control transparent-input" id="signup-email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="sr-only" for="signup-password">Password</label>
+                                    <input type="password" class="form-control transparent-input" id="signup-password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="sr-only" for="retype-password">Confirm password</label>
+                                    <input type="password" class="form-control transparent-input" id="retype-password" placeholder="Confirm password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 text-center">
+                                    <div class="g-recaptcha" data-theme="light" data-sitekey="6Lfy8icTAAAAAAFlg3pHN5IwoXsfdQM__yPEMln1" style="transform: scale(0.96999);-webkit-transform: scale(0.96999);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <span class="signup-btn" role="button">SIGN UP</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div> <!-- /#well-get-started -->
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.jumbotron -->
+
+    <h1 class="app-go text-center"><em>"Do... or do not. There is no try."<br></em>- Master Yoda</h1>
 
     <!-- Main Content -->
-    <div class="container-fluid content-section">
-        <div class="section-rentals">
-            <!-- TODO: ADD RENTALS STUFF HERE -->
+    <div class="container-fluid">
+
+        <div class="row feature">
+            <div class="col-md-7 text-center">
+                <h2 class="feature-heading">Manage all of your rental properties from here. Burn spreadsheets.<br><span class="text-muted">Yes, mind blown.</span></h2>
+                <br>
+                <br>
+                <p class="lead">Our property managment dashboard will help you stay on top of everything. Except for pasta, it can't make pasta. Yet.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="feature-image img-responsive center-block" src="assets/img/rentals_section_icon.png" alt="My Rentals feature section">
+            </div>
         </div>
-        <div class="section-documents">
-            <!-- TODO: ADD DOCUMENT STORAGE FEATURE STUFF HERE -->
+
+        <hr class="feature-divider">
+
+        <div class="row feature">
+            <div class="col-md-7 col-md-push-5">
+                <h2 class="feature-heading">Financial reports at your finger tips.<br><span class="text-muted">Oh yeah, it's that good.</span></h2>
+                <br>
+                <br>
+                <p class="lead">As the honorable Chewbacca once said<br><em>"WAGRRRRWW GAHHHHWWW RRGGAWWWW GGWWWRGHH."</em><br>Don't underestimate the power of a solid hyperdrive. Our financial reports are like a hyperdrive on hyperdrive. Think about it though, a hyperdrive on hyperdrive.</p>
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+                <img class="feature-image img-responsive center-block" src="assets/img/finance_section_icon.png" alt="Financial reports feature section">
+            </div>
         </div>
-        <div class="section-finance">
-            <!-- TODO: ADD FINANCE FEATURES STUFF CONTENT HERE -->
+
+        <hr class="feature-divider">
+
+        <div class="row feature">
+            <div class="col-md-7">
+                <h2 class="feature-heading">Store rental documents online.<br><span class="text-muted">Go ahead, everyone is doing it.</span></h2>
+                <br>
+                <br>
+                <p class="lead">Honestly, this rental property document storage feature is just good for your health. Keep all of your rental legal documents in the cloud. Not really a cloud by the way, it's just someone elses computer :-)</p>
+            </div>
+            <div class="col-md-5">
+                <img class="feature-image img-responsive center-block" src="assets/img/documents_section_icon.png" alt="Document storage feature section">
+            </div>
         </div>
-        <div class="section-maintenance">
-            <!-- TODO: ADD MAINTENANCE TRACKING FEATURE CONTENT HERE -->
+
+        <hr class="feature-divider">
+
+        <div class="row feature">
+            <div class="col-md-7 col-md-push-5">
+                <h2 class="feature-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <br>
+                <br>
+                <p class="lead">I know. The heading looks really familiar (getbootstrap.com). But now that I have your attention lets talk about how awesome it will be to keep track of maintenance reminders through our online dashboard. Unless you're in Weston Florida on a T-Mobile connection. For some reason service there is horrible. Boom. Burn.</p>
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+                <img class="feature-image img-responsive center-block" src="assets/img/reminders_section_icon.png" alt="Maintenance reminders feature section">
+            </div>
         </div>
+
     </div> <!-- /.container-fluid -->
+
+    <h1 class="app-go text-center"><em>"Obi-Wan has taught you well."<br></em>- Darth Vader</h1>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="text-muted text-right">Copyright &copy 2016. All rights reserved.</p>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <p class="text-muted text-left">UCF Coding Bootcamp</p>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <p class="text-muted text-center">Made with <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></span> by Team BizyCoding</p>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <p class="text-muted text-right">Copyright &copy 2016. All rights reserved.</p>
+            </div>
             <!-- TODO: ADD PRIVACY POLICY LINK -->
             <!-- TODO: ADD TERMS OF USE LINK -->
         </div>
@@ -87,11 +194,15 @@
 
     <!-- =================================================== -->
     <!-- jQuery JS -->
-    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+            crossorigin="anonymous"></script>
     <!--Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <!--Google recaptcha JS -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <!-- Firebase JS -->
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
     <!-- Global JS -->

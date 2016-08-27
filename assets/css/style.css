@@ -302,7 +302,7 @@
     }
 }
 
-/*==================================================================
+/*================================================================
 --------------- EVERYTHING BELOW THIS POINT IS NEW ---------------
 ==================================================================*/
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,900';
@@ -315,6 +315,7 @@ html {
 }
 
 body {
+    position: relative;
     /* Move down content because fixed navbar that is 50px tall */
     padding-top: 50px;
     /* IMPORTANT NOTE: Set margin bottom equal to footer height set below */
@@ -341,31 +342,94 @@ body {
 .dash { color: #1D8278; }
 
 .dashboard-btn {
+    position: absolute;
+    top: 3px;
+    right: 50px;
     font-size: 12px;
     margin-top: 10px;
     padding: 6px 16px;
-    text-decoration: none!important;
-    color: #fff!important;
+    text-decoration: none !important;
+    color: #fff !important;
     background-color: #1d8278;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    /*border: none;
+    border: none;
     display: inline-block;
     outline: 0;
     white-space: nowrap;
     vertical-align: middle;
-    overflow: hidden;*/
+    overflow: hidden;
+    border-radius: 3px;
 }
 
 /* ----------- Main Content ----------- */
+.app-go {
+    height: 200px;
+    color: #fff;
+    background-image: url('../img/background_pattern.png');
+    background-position: left;
+    background-repeat: repeat;
+    margin: 0;
+    padding-top: 50px;
+    line-height: 1.5em;
+}
+
 .jumbotron {
-    height: 600px;
+    height: 715px;
     margin-bottom: 0;
     background-image: url('../img/background_login.jpg');
     background-position: top;
     background-size: cover;
+    padding-top: 60px;
+}
 
+.jumbotron .well {
+    padding: 25px;
+    background-color: rgba(48, 48, 48, 0.75);
+    color: #fff;
+    border-color: #303030;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.jumbotron .well h4 {
+    margin-bottom: 20px;
+}
+
+input.transparent-input {
+   background-color: rgba(255, 255, 255, 0.25) !important;
+   border: rgba(229, 229, 229, 0.25) !important;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   color: #fff;
+   font-size: 16px;
+   letter-spacing: 0.0625em;
+   height: 45px;
+}
+
+.form-control:focus {
+    border-color: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.g-recaptcha :first-child {
+    margin: 0 auto;
+}
+
+.signup-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none !important;
+    color: #fff !important;
+    background-color: #1d8278;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    vertical-align: middle;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
 .content-section {
@@ -373,31 +437,31 @@ body {
     padding-right: 0;
 }
 
-.section-rentals {
-    height: 325px;
-    background-color: #fff;
+.content-section>div.clearfix {
+    padding-top: 20px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+    padding-left: 100px;
 }
 
-.section-documents {
-    height: 275px;
-    background-color: #438B83;
+.content-section img.center-block {
+    max-height: 200px;
 }
 
-.section-finance {
-    height: 300px;
-    background-color: #fff;
-}
-
+.section-rentals { background-color: #fff; }
 .section-maintenance {
-    height: 300px;
     background-color: #1D4455;
+    color: #fff;
 }
+.section-finance { background-color: #fff; }
+.section-documents { background-color: #438B83; }
+
 
 /* ----------- Footer ----------- */
 .footer {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -60px;
     width: 100%;
     height: 60px;
     background-color: #fff;
@@ -414,4 +478,44 @@ body {
     font-size: 12px;
 }
 
+.feature-divider {
+  margin: 50px 0;
+}
+
+.feature-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.feature>div {
+    text-align: center;
+    line-height: 1.5em;
+}
+
 /* ----------- Media Queries ----------- */
+@media screen and (min-width: 768px) {
+    .jumbotron .h1, .jumbotron h1 {
+        font-size: 32px;
+    }
+
+    .feature-heading {
+      font-size: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+    .feature-heading {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (max-height: 575px) {
+    /*WHY IS THIS NOT WORKING!!!!*/
+    .g-recaptcha {
+        transform:scale(0.95);
+        -webkit-transform:scale(0.95);
+        transform-origin:0 0;
+        -webkit-transform-origin:0 0;
+    }
+}
