@@ -13,6 +13,6 @@ firebase.initializeApp(config);
 // =========================================================
 // Global Firebase reference variables
 // =========================================================
-var DATABASE = firebase.database();
-var AUTH = firebase.auth();
-var STORAGE = firebase.storage();
+var database = firebase.database();
+var auth_data = firebase.auth();
+var storage = firebase.storage();
