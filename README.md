@@ -1,5 +1,11 @@
 # Rental Dash Pro
-visit us at [http://www.rentaldashpro.com](http://www.rentaldashpro.com "RentalDash Pro")
+Visit us at [http://www.rentaldashpro.com](http://www.rentaldashpro.com "RentalDash Pro")
+
+Sign up form currently disabled please use the following to see demo 
+~~~~
+Username: sample@email.com
+password: test123
+~~~~
 
 ## Project Title
 Rental Dash Pro - Rental Property Management Dashboard
