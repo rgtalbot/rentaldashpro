@@ -1,0 +1,6 @@
+browserconfig.xml
+.idea
+DS_Store
+node_modules
+oldrdp
+.env

@@ -1,0 +1,124 @@
+<nav class="navbar navbar-fixed-top navbarMain" role="navigation">
+    <div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <img alt="logo" src="assets/img/logo_white.png" id="logoTop">
+            </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><img alt="@rgtalbot"
+                                 class="avatar"
+                                 src="https://secure.gravatar.com/avatar/dbd620f1d96d7bc7e4e05e8d4c1881a4?s
+                    =64"></a></li>
+        </ul>
+    </div>
+</nav>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    <p style="font-size: 24px; margin:0">RENTAL<span id="dash">DASH</span> PRO</p>
+                </a>
+            </li>
+            <li class="activeSide">
+                <a href="#" id="overViewButton"><span class="glyphicon glyphicon-dashboard"></span> Overview <span
+                        class="glyphicon glyphicon-menu-right"></span></a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-folder-open"></span> My Rental Documents</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-signal"></span> Financial Performance</a>
+            </li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-calendar"></span> Owner Reminders</a>
+            </li>
+            <li>
+                <a href="#formModal" data-toggle="modal"><span class="glyphicon glyphicon-plus"></span> Add New Property</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!--modal structure -->
+    <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="formModalTitle">Add New Property</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="bs-callout bs-callout-warning hidden">
+                        <h4>Oh snap!</h4>
+                        <p>You seem to have forgotten some information</p>
+                    </div>
+                    <div class="bs-callout bs-cllout-info hidden">
+                        <h4>HECK YES!</h4>
+                        <p>Everything ee</p>
+                    </div>
+                    <form id="add_prop_form" data-parsely-validate="">
+                        <div class="form-group">
+                            <label for="prop_name">Property Name</label>
+                            <input type="text" class="form-control" id="prop_name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="prop_address">Property Address</label>
+                            <input type="text" class="form-control" id="prop_address" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="prop_type">Property Type</label>
+                            <select class="form-control" id="prop_type" required="">
+                                <option selected disabled value="">Choose Property Type</option>
+                                <option value="House">House</option>
+                                <option value="Condo">Condo</option>
+                                <option value="Townhouse">Townhouse</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prop_status">Property Status</label>
+                            <select class="form-control" id="prop_status" required="">
+                                <option selected disabled value="">Choose Property Status</option>
+                                <option value="Occupied">Occupied</option>
+                                <option value="Vacant">Vacant</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label for="prop_bed"># of Bedrooms</label>
+                                    <input type="number" class="form-control" id="prop_bed" required="">
+                                </div>
+                                <div class="col-xs-4">
+                                    <label for="prop_bath"># of Bathrooms</label>
+                                    <input type="number" class="form-control" id="prop_bath" required="">
+                                </div>
+                                <div class="col-xs-4">
+                                    <label for="prop_sqft">Square Feet</label>
+                                    <input type="number" class="form-control" id="prop_sqft" required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="prop_description">Property Description</label>
+                            <textarea id="prop_description" class="form-control" rows="3"></textarea>
+                        </div>
+                        <input type="submit" class="btn modalAddBtn" value="ADD">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--end modal-->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->

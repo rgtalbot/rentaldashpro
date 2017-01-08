@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <base href="/">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Brent Bentley, Ryan Talbot, Ronny Tomasetti, George Witt">
+    <meta name="description" content="Rental property management portal giving property owners the ability to keep track of financial reports, legal documents, rental contracts, maintenance remainders and issues regarding their portfolio of rental properties.">
+    <meta name="keywords" content="rental property management software, property management application">
+
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="assets/img/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="assets/img/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/img/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="assets/img/favicon-144.png">
+    <meta name="msapplication-config" content="browserconfig.xml">
+
+    <title>Rental Dash Pro - Rental Property Management Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <!-- Site custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+</head>
+
+<body ng-app="rentalDashPro">
+
+
+<div ui-view></div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <p class="text-muted text-left">UCF Coding Boot Camp</p>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <p class="text-muted text-center">Made with <span class="glyphicon glyphicon-heart" aria-hidden="true" style="color:red;"></span> by R Squared Inc.</p>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <p class="text-muted text-right">Copyright &copy 2016. All rights reserved.</p>
+        </div>
+        <!-- TODO: ADD PRIVACY POLICY LINK -->
+        <!-- TODO: ADD TERMS OF USE LINK -->
+    </div>
+</footer>
+
+<!--ANGULAR JS-->
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="libs/ngstorage/ngStorage.min.js"></script>
+
+
+<!--BOOTSTRAP AND JQUERY-->
+<!--GOTTA DITCH THESE-->
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!--ANGULAR CUSTOM-->
+<script src="assets/js/app.js"></script>
+<script src="assets/js/controllers/MainCtrl.js"></script>
+<script src="assets/js/controllers/DashCtrl.js"></script>
+
+</body>
+
+</html>
