@@ -29,6 +29,8 @@ router.post('/parse/signup', function(req, res) {
     user.signUp(null, {
         success: function(user) {
             console.log('success');
+            console.log(user);
+
             res.send(true);
 
         },
@@ -49,6 +51,9 @@ router.post('/parse/login', function(req, res) {
         success: function(user) {
             console.log('user', user);
             console.log('success');
+            Parse.Cloud.run('GetOwnerProfile', null, null).then(function(response) {
+                console.log(response);
+            });
             res.send(true);
         },
         error: function(user, error) {
