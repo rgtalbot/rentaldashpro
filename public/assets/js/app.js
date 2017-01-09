@@ -12,6 +12,11 @@ app.config(['$locationProvider', '$stateProvider', function ($locationProvider, 
             url: '/dashboard',
             templateUrl: 'views/dashboard.html',
             controller: 'DashboardController'
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: 'views/login.html',
+            controller: 'LoginController'
         });
 
     $locationProvider.html5Mode(true);

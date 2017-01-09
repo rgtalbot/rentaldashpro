@@ -20,8 +20,6 @@ Parse.serverURL = parseServerUri;
 
 router.post('/parse/signup', function(req, res) {
 
-    console.log('TESTING');
-    console.log('BODY', req.body);
     var user = new Parse.User({
         "username": req.body.email,
         "password": req.body.password,
@@ -31,15 +29,34 @@ router.post('/parse/signup', function(req, res) {
     user.signUp(null, {
         success: function(user) {
             console.log('success');
-            res.send('success');
+            res.send(true);
 
         },
         error: function(user,error) {
             console.log(error);
+            res.send(error);
         }
     }).then(function(error) {
         console.log(error);
     })
+});
+
+
+//TODO make sure the correct stuff is sent with the /dashboard to check for user
+//LOG IN
+router.post('/parse/login', function(req, res) {
+    Parse.User.logIn(req.body.email, req.body.password, {
+        success: function(user) {
+            console.log('user', user);
+            console.log('success');
+            res.send(true);
+        },
+        error: function(user, error) {
+            console.log('error', error);
+            console.log('user', user);
+            // The login failed. Check error to see why.
+        }
+    });
 });
 
 // FRONTEND ROUTES =======================

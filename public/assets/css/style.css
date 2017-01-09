@@ -314,13 +314,13 @@ html {
     min-height: 100%;
 }
 
-body {
-    position: relative;
-    /* Move down content because fixed navbar that is 50px tall */
-    padding-top: 50px;
-    /* IMPORTANT NOTE: Set margin bottom equal to footer height set below */
-    margin-bottom: 60px;
-}
+/*body {*/
+    /*position: relative;*/
+    /*!* Move down content because fixed navbar that is 50px tall *!*/
+    /*padding-top: 50px;*/
+    /*!* IMPORTANT NOTE: Set margin bottom equal to footer height set below *!*/
+    /*margin-bottom: 60px;*/
+/*}*/
 
 /* ----------- Fixed Navbar ----------- */
 .navbar-fixed-top {

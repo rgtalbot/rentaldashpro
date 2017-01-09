@@ -8,7 +8,7 @@
             </a>
         </div>
         <!-- TODO: FIX BUTTON POSITION WHEN SCREEN WIDTH IS LESS THAN 768PX -->
-        <a class="dashboard-btn navbar-right" target="_self" href="/dashboard">LOGIN</a>
+        <a class="dashboard-btn navbar-right" target="_self" href="/login">LOGIN</a>
     </div> <!-- /.container -->
 </nav> <!-- /.navbar navbar-default -->
 
@@ -23,16 +23,17 @@
                         <h4>Rental Property Management Portal</h4>
                     </h1>
                     <form class="form-horizontal" name="signUpForm" ng-submit="signUp(signUpForm.$valid)" novalidate>
-                        <div class="col-xs-6">
-                            <div class="form-group">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+
                                 <label class="sr-only" for="firstName">First Name</label>
                                 <input type="text" class="form-control transparent-input" id="firstName"
                                        placeholder="First Name"
                                        ng-model="firstName" required>
+
                             </div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="form-group">
+                            <div class="col-xs-6">
+
                                 <label class="sr-only" for="lastName">Last Name</label>
                                 <input type="text" class="form-control transparent-input" id="lastName"
                                        placeholder="Last Name"
@@ -40,24 +41,31 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="email">Email address</label>
-                            <input type="text" class="form-control transparent-input" id="email" placeholder="Email"
-                                   ng-model="email" required>
+                            <div class="col-xs-12">
+                                <label class="sr-only" for="email">Email address</label>
+                                <input type="text" class="form-control transparent-input" id="email" placeholder="Email"
+                                       ng-model="email" required>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="password">Password</label>
-                            <input type="password" class="form-control transparent-input" id="password"
-                                   placeholder="Password" ng-model="password">
+                            <div class="col-xs-12">
+                                <label class="sr-only" for="password">Password</label>
+                                <input type="password" class="form-control transparent-input" id="password"
+                                       placeholder="Password" ng-model="password">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="retypePassword">Confirm password</label>
-                            <input type="password" class="form-control transparent-input" id="retypePassword"
-                                   placeholder="Confirm password" ng-model="retypePassword">
+                            <div class="col-xs-12">
+                                <label class="sr-only" for="retypePassword">Confirm password</label>
+                                <input type="password" class="form-control transparent-input" id="retypePassword"
+                                       placeholder="Confirm password" ng-model="retypePassword">
+                            </div>
                         </div>
                         <div class="form-group">
-                        </div>
-                        <div class="form-group">
-                            <button class="signup-btn" type="submit" ng-disabled="signUpForm.$invalid">SIGN UP</button>
+                            <div class="col-xs-12">
+                                <button class="signup-btn" type="submit" ng-disabled="signUpForm.$invalid">SIGN UP
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div> <!-- /#well-get-started -->

@@ -1,10 +1,4 @@
-app.controller("MainController", ["$scope", "$http", "$state", function ($scope, $http) {
-
-    $scope.tagline = 'To the moon and back!';
-    console.log($scope.tagline);
-
-    $scope.signUp = {};
-
+app.controller("MainController", ["$scope", "$http", "$state", function ($scope, $http, $state) {
 
     $scope.signUp = function(isValid) {
 
@@ -24,8 +18,11 @@ app.controller("MainController", ["$scope", "$http", "$state", function ($scope,
             $http.post('/parse/signup', user).then(function (response) {
                 console.log(response);
                 user = {};
-
                 $scope.signUpForm.$setPristine(true);
+
+                if(response.data === true) {
+                    $state.go('dashboard');
+                }
             });
         }
 

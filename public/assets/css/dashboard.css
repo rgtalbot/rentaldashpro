@@ -201,9 +201,9 @@
     width: 60px;
 }
 
-body {
-    padding-top: 50px;
-}
+/*body {*/
+    /*padding-top: 50px;*/
+/*}*/
 
 .activeSide {
     border-left: solid 5px #408A82;
